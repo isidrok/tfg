@@ -1,16 +1,17 @@
 {
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "command": {
-      "publish": {
-          "allowBranch": "master",
-          "conventionalCommits": true,
-          "exact": true,
-          "message": "chore(release): publish"
-      }
-  },
-  "packages": [
-      "client/*/*",
-      "infra/*/*"
-  ]
+    "npmClient": "yarn",
+    "useWorkspaces": true,
+    "command": {
+        "publish": {
+            "allowBranch": "master",
+            "conventionalCommits": true,
+            "exact": true,
+            "message": "chore(release): publish"
+        }
+    },
+    "packages": [
+        "client/*/*",
+        "infra/*/*"
+    ],
+    "version": "0.0.0"
 }
