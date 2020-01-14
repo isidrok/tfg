@@ -1,0 +1,10 @@
+{
+  "name": "@tfg-builder/rollup-plugin-entry",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "fs-extra": "8.1.0",
+    "html-minifier": "4.0.0"
+  }
+}

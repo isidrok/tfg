@@ -1,0 +1,20 @@
+{
+  "name": "@tfg/root",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client/*/*",
+    "infra/*/*"
+  ],
+  "scripts": {
+    "watch": "tfg build -w",
+    "build": "tfg build -a",
+    "postinstall": "tfg build -l"
+  },
+  "dependencies": {
+    "@tfg-commands/cli": "0.0.0",
+    "lerna": "^3.20.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@tfg-builder/import-map",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@tfg-config/project": "0.0.0",
+    "fs-extra": "8.1.0",
+    "glob": "7.1.6"
+  }
+}

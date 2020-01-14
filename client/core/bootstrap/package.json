@@ -1,0 +1,14 @@
+{
+  "name": "@tfg-core/bootstrap",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@tfg-apps/app": "0.0.0",
+    "systemjs": "6.1.9"
+  },
+  "devDependencies": {
+    "@tfg-builder/rollup-config": "0.0.0",
+    "@tfg-config/project": "0.0.0"
+  }
+}

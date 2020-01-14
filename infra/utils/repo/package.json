@@ -1,0 +1,10 @@
+{
+  "name": "@tfg-utils/repo",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@tfg-config/project": "0.0.0",
+    "get-monorepo-packages": "1.2.0"
+  }
+}
