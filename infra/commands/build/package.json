@@ -6,6 +6,7 @@
   "dependencies": {
     "@tfg-builder/import-map": "0.0.0",
     "@tfg-builder/rollup-runner": "0.0.0",
+    "@tfg-config/project": "0.0.0",
     "@tfg-utils/repo": "0.0.0",
     "chokidar": "3.3.1",
     "npmlog": "4.1.2"

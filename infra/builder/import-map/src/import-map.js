@@ -4,7 +4,6 @@ const glob = util.promisify(require('glob'));
 const PROJECT  = require('@tfg-config/project');
 
 async function getMaps() {
-    
     const mapFiles = await glob(`${PROJECT.DIST}/**/${PROJECT.IMPORT_MAP_FILENAME}`);
     return Promise.all(mapFiles.map((file) => fs.readJSON(file)));
 }
@@ -20,8 +19,8 @@ async function buildImportMap() {
 
 async function insertImportMap() {
     const importMap = await buildImportMap();
-    let html = await fs.readFile(PROJECT.INDEX_HTML, 'utf8');
-    html = html.replace('${importMap}', importMap);
+    const tmpl = await fs.readFile(PROJECT.TEMPLATE_HTML, 'utf8');
+    const html = tmpl.replace('${importMap}', importMap);
     await fs.writeFile(PROJECT.INDEX_HTML, html);
 }
 

@@ -1,76 +1,52 @@
 const getMonorepoPackages = require('get-monorepo-packages');
-const PROJECT  = require('@tfg-config/project');
+const PROJECT = require('@tfg-config/project');
 
-const packages = getAllPackages();
-
-function getAllPackages() {
-    return getMonorepoPackages(PROJECT.ROOT)
-        .reduce((packages, { package, location }) => {
-            const { name } = package;
-            packages[name] = { ...package, location };
-            return packages;
-        }, {});
-}
-
-function getPackage(name) {
-    return packages[name];
-}
-
-function removeScope(projectName){
-    return projectName.replace(`@${PROJECT.MODULE_NAMESPACE}-`,'')
-}
-
-function getProjects() {
-    return Object.keys(packages)
-}
-
-function isClientProject(name){
-    return PROJECT.CLIENT_NAMESPACES.some((scope) => name.startsWith(`@${scope}/`));
-}
-
-function getClientProjects() {
-    return getProjects().filter(isClientProject);
-}
-
-function getClientDeps() {
-    const deps = getClientProjects().map((name) => {
-        const package = packages[name];
-        return Object.keys(package.dependencies);
-    }).flat();
-    return [...new Set(deps)];
-}
-
-function getExternalDeps(){
-    return getClientDeps().filter((dep) => !PROJECT.BUNDLED_LIBS.includes(dep))
-}
-
-function getDepsToBuild(){
-    return getExternalDeps().filter((dep) => !isClientProject(dep))
-}
-
-function getLocations(projects) {
-    return Object.keys(packages)
-        .filter((name) => projects.includes(name))
-        .map((name) => getPackage(name).location)
-}
-
-function getProjectByLocation(location) {
-    return Object.keys(packages)
-        .find((name) => {
-            const package = packages[name];
+const repoManager = {
+    get packages() {
+        const pkgs = [];
+        for(let {package, location} of getMonorepoPackages(PROJECT.ROOT)){
+            pkgs.push({...package, location})
+        }
+        return pkgs;
+    },
+    get projects() {
+        return this.packages.map((package) => package.name);
+    },
+    get clientPackages(){
+        return this.packages.filter((package) => this.isClientProject(package.name));
+    },
+    get clientProjects(){
+        return this.projects.filter(this.isClientProject);
+    },
+    get clientDeps(){
+        const deps = this.clientPackages.map((package) => {
+            return Object.keys(package.dependencies);
+        }).flat();
+        return [...new Set(deps)];
+    },
+    get externalDeps(){
+        return this.clientDeps.filter((dep) => !PROJECT.BUNDLED_LIBS.includes(dep))
+    },
+    get libs(){
+        return this.externalDeps.filter((dep) => !this.isClientProject(dep));
+    },
+    get clientLocations(){
+        return this.clientPackages.map((package) => package.location);
+    },
+    findProjectByLocation(location) {
+        return this.packages.find((package) => {
             return package.location === location;
-        })
+        }).name;
+    },
+    findPackage(name) {
+        return this.packages.find((package) => package.name === name);
+    },
+    normalize(name) {
+        return name.replace(`@${PROJECT.MODULE_NAMESPACE}-`, '')
+    },
+    isClientProject(name) {
+        return PROJECT.CLIENT_NAMESPACES.some((ns) => name.startsWith(`@${ns}/`));
+    }
 }
 
-module.exports = {
-    packages,
-    getPackage,
-    removeScope,
-    getProjects,
-    getClientProjects,
-    getClientDeps,
-    getExternalDeps,
-    getDepsToBuild,
-    getLocations,
-    getProjectByLocation
-};
+module.exports = repoManager;

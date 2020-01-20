@@ -1,19 +1,23 @@
-const { getExternalDeps } = require('@tfg-utils/repo');
 const PROJECT = require('@tfg-config/project');
 const getPlugins = require('./plugins');
 
-function libConfig(lib) {
+function createInput(libs){
+    const input = {};
+    for(let lib of libs){
+        input[lib] = require.resolve(lib);
+    }
+    return input;
+}
+
+function libsConfig(libs) {
     return {
         inputOptions: {
-            input: {
-                [lib]: require.resolve(lib)
-            },
-            external: getExternalDeps(),
+            input: createInput(libs),
             plugins: getPlugins({
                 replace: null,
                 resolve: {},
                 url: {
-                    publicPath: `${lib}/`,
+                    publicPath: `libs/`,
                     fileName: '[name].[hash][extname]',
                 },
                 cjs: {},
@@ -21,17 +25,17 @@ function libConfig(lib) {
                 terser: {},
                 importMap: {
                     mapFileName: PROJECT.IMPORT_MAP_FILENAME,
-                    baseURL: `/libs/${lib}/`
+                    baseURL: `/libs/`
                 },
                 entry: null
             }),
         },
         outputOptions: {
-            dir: `${PROJECT.DIST}/libs/${lib}`,
+            dir: `${PROJECT.DIST}/libs`,
             format: 'system',
             sourcemap: true,
         }
     };
 }
 
-module.exports = libConfig;
+module.exports = libsConfig;

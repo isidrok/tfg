@@ -15,7 +15,7 @@ module.exports = projectConfig({
     plugins: {
         entry: {
             input: resolve(__dirname, 'public', 'index.html'),
-            dest: PROJECT.INDEX_HTML,
+            dest: PROJECT.TEMPLATE_HTML,
             basePath: PROJECT.DIST,
             minify: {
                 removeComments: true,

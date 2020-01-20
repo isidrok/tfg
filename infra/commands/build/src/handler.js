@@ -2,7 +2,8 @@ const log = require('npmlog');
 const chokidar = require('chokidar');
 const rollupRunner = require('@tfg-builder/rollup-runner');
 const insertImportMap = require('@tfg-builder/import-map');
-const { getPackage, getDepsToBuild, getClientProjects, getLocations, getProjectByLocation } = require('@tfg-utils/repo');
+const repoManager = require('@tfg-utils/repo');
+const PROJECT = require('@tfg-config/project');
 
 async function updateImportMap() {
     try {
@@ -17,7 +18,7 @@ async function updateImportMap() {
 
 async function buildProject(project) {
     log.info('BUILD', `Building ${project}...`);
-    const package = getPackage(project);
+    const package = repoManager.findPackage(project);
     if (!package) {
         throw new Error(`Project ${project} does not exist`);
     }
@@ -36,17 +37,11 @@ async function buildProjects(projects) {
     }
 }
 
-async function buildLib(lib) {
-    log.info('BUILD', `Building ${lib}...`);
-    await rollupRunner.buildLib(lib);
-    log.info('BUILD', `Build for ${lib} finished`);
-}
-
 async function buildLibs() {
     try {
-        const libs = getDepsToBuild();
+        const libs = repoManager.libs;
         log.info('BUILD', `Build for libraries [${libs.join(', ')}] started`);
-        await Promise.all(libs.map(buildLib));
+        await rollupRunner.buildLibs(libs);
         log.info('BUILD', `Finished building all libraries`);
     } catch (err) {
         log.error('BUILD', `Error building libraries: ${err.stack}`);
@@ -56,7 +51,7 @@ async function buildLibs() {
 
 async function buildProjectWithCache(project) {
     log.info('WATCH', `Building ${project}...`);
-    const package = getPackage(project);
+    const package = repoManager.findPackage(project);
     if (!package) {
         throw new Error(`Project ${project} does not exist`);
     }
@@ -64,11 +59,10 @@ async function buildProjectWithCache(project) {
     log.info('WATCH', `Build for ${project} finished`);
 }
 
-
-async function startWatcher() {
+function startWatcher(){
     log.info('WATCH', `Watcher started`);
-    const projectSources = getLocations(getClientProjects()).map((location) => `${location}/src/**/*`);
-    const watcher = chokidar.watch(projectSources, {
+    const projectSources = repoManager.clientLocations.map((location) => `${location}/src/**/*`);
+    const watcher = chokidar.watch([...projectSources, PROJECT.LOCK_FILE], {
         ignoreInitial: true,
         awaitWriteFinish: true,
     });
@@ -77,9 +71,23 @@ async function startWatcher() {
         .on('unlink', onChanges);
 }
 
-async function onChanges(path) {
+function onChanges(path){
+    if(path === PROJECT.LOCK_FILE){
+        onLockFileChanges();
+    } else {
+        onProjectChanges(path);
+    }
+}
+
+async function onLockFileChanges(){
+    log.info('WATCH', `Lockfile changed`);
+    await buildLibs();
+    await updateImportMap();
+}
+
+async function onProjectChanges(path) {
     const projectLocation = path.substring(0, path.lastIndexOf('/src/'));
-    const project = getProjectByLocation(projectLocation);
+    const project = repoManager.findProjectByLocation(projectLocation);
     log.info('WATCH', `Detected changes on ${project}`);
     try {
         await buildProjectWithCache(project);
@@ -94,7 +102,7 @@ module.exports = async function (options) {
     try {
         if (all) {
             log.info('BUILD', `Building all projects and libraries`);
-            projects = getClientProjects();
+            projects = repoManager.clientProjects;
             libs = true;
         }
         if (projects && projects.length) {

@@ -9,12 +9,15 @@
     "infra/*/*"
   ],
   "scripts": {
+    "start": "yarn watch & yarn serve",
     "watch": "tfg build -w",
-    "build": "tfg build -a",
-    "postinstall": "tfg build -l"
+    "serve": "tfg serve -p dev",
+    "build:all": "tfg build -a",
+    "build:libs": "tfg build -l",
+    "prepare": "tfg build -l -p @tfg-core/bootstrap"
   },
   "dependencies": {
     "@tfg-commands/cli": "0.0.0",
-    "lerna": "^3.20.2"
+    "lerna": "3.20.2"
   }
 }

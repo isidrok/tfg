@@ -26,14 +26,14 @@ async function buildProject(package) {
     }
 }
 
-async function buildLib(lib){
+async function buildLibs(libs){
     try {
-        const config = rollupConfig.libConfig(lib);
+        const config = rollupConfig.libsConfig(libs);
         const { inputOptions, outputOptions } = config;
         const bundle = await rollup(inputOptions);
         await bundle.write(outputOptions);
     } catch (err) {
-        throw new Error(`Error building ${lib}: ${err.message}`);
+        throw new Error(`Error building ${libs}: ${err.message}`);
     }
 }
 
@@ -52,6 +52,6 @@ async function buildProjectWithCache(package){
 
 module.exports = {
     buildProject,
-    buildLib,
+    buildLibs,
     buildProjectWithCache
 };

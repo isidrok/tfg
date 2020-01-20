@@ -1,19 +1,19 @@
 const path = require('path');
 const merge = require('deepmerge');
-const { removeScope,  getExternalDeps } = require('@tfg-utils/repo');
+const repoManager = require('@tfg-utils/repo');
 const PROJECT  = require('@tfg-config/project');
 const getPlugins = require('./plugins');
 
 function getDefaultInputConfig() {
     return {
         cache: null,
-        external: getExternalDeps()
+        external: (id) => repoManager.externalDeps.includes(id)
     };
 };
 
 function getDefaultOutputConfig(package) {
     return {
-        dir: `${PROJECT.DIST}/${removeScope(package.name)}`,
+        dir: `${PROJECT.DIST}/${repoManager.normalize(package.name)}`,
         format: 'system',
         sourcemap: true,
     }
@@ -33,7 +33,7 @@ function getInput(config, package) {
     }
     return merge(getDefaultInputConfig(), {
         input: getAbsInput(input, package),
-        plugins: getPlugins(config.plugins, removeScope(package.name)),
+        plugins: getPlugins(config.plugins, repoManager.normalize(package.name)),
         ...inputConfig
     });
 }
