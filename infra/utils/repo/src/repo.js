@@ -25,10 +25,10 @@ const repoManager = {
         return [...new Set(deps)];
     },
     get externalDeps(){
-        return this.clientDeps.filter((dep) => !PROJECT.BUNDLED_LIBS.includes(dep))
+        return this.clientDeps.filter((dep) => !PROJECT.BUNDLED_LIBS.includes(dep)).concat(PROJECT.LIB_IMPORTS);
     },
     get libs(){
-        return this.externalDeps.filter((dep) => !this.isClientProject(dep));
+        return this.externalDeps.filter((dep) => !this.isClientProject(dep)).concat(PROJECT.LIB_IMPORTS);
     },
     get clientLocations(){
         return this.clientPackages.map((package) => package.location);

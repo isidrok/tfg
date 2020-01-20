@@ -17,7 +17,7 @@ function getDefaultPluginConfig(name) {
         replace: null,
         resolve: {},
         url: {
-            publicPath: `${name}/`,
+            publicPath: `/${name}/`,
             fileName: '[name].[hash][extname]',
         },
         cjs: {},

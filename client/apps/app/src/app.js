@@ -1,10 +1,18 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import './components/layout';
 import './components/menu';
+import './components/header';
 import { createRouter } from './app.router';
 import {MENU_ITEMS} from './menu-items';
 
 class TFGApp extends LitElement {
+  static get styles(){
+    return css`
+      .app-header {
+        width: 100%;
+      }
+    `;
+  }
   async connectedCallback() {
     super.connectedCallback();
     await this.updateComplete;
@@ -17,11 +25,9 @@ class TFGApp extends LitElement {
   render() {
     return html`
       <tfg-app-layout>
+        <tfg-app-header class="app-header" slot="header"></tfg-app-header>
         <tfg-app-menu slot="menu" .items=${MENU_ITEMS}></tfg-app-menu>
-        <div class="content">
-          <h1>App</h1>
-          <main id="outlet"></main>
-        </div>  
+        <main id="outlet"></main>
       </tfg-app-layout>
     `;
   }
