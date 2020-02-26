@@ -20,7 +20,7 @@ const repoManager = {
     },
     get clientDeps(){
         const deps = this.clientPackages.map((package) => {
-            return Object.keys(package.dependencies);
+            return Object.keys(package.dependencies || {});
         }).flat();
         return [...new Set(deps)];
     },

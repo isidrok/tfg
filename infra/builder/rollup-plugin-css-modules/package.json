@@ -1,0 +1,9 @@
+{
+  "name": "@tfg-builder/rollup-plugin-css-modules",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@rollup/pluginutils": "3.0.8"
+  }
+}

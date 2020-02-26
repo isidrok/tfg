@@ -10,7 +10,7 @@ class TFGAppMenu extends LitElement {
     }
     _menuItem(item){
         return html`<tfg-app-menu-item .config=${item}></tfg-app-menu-item>`;
-    }
+    } 
     render() {
         return html`
         <vaadin-tabs slot="drawer" orientation="vertical">

@@ -1,38 +1,19 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html } from 'lit-element';
+import {css} from '@tfg-core/css';
+import {layout} from '@tfg-style/layout';
 import '@vaadin/vaadin-app-layout/vaadin-drawer-toggle';
 import bank from './bank.svg';
-
+import headerCSS from './header.css';
 
 class TFGAppHeader extends LitElement {
     static get styles(){
-        return css`
-            .header {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                width: 100%; 
-            }
-            .header__content {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                width: 100%; 
-            }
-            .header__image {
-                height: 3rem;
-            }
-            .header__title{
-                padding-right: 1rem;
-                padding-left: 1rem;
-            }
-        `
+        return css(headerCSS, layout);
     }
     render() {
         return html`
-            <header class="header">
+            <header class="horizontal fill-width header">
                 <vaadin-drawer-toggle></vaadin-drawer-toggle>
-                <div class="header__content">
+                <div class="horizontal fill-width header__content">
                     <img class="header__image" src="${bank}" />
                     <h1 class="header__title">TFG BANK</h1>
                     <img class="header__image" src="${bank}" />

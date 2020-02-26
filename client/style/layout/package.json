@@ -1,0 +1,9 @@
+{
+  "name": "@tfg-style/layout",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "devDependencies": {
+    "@tfg-builder/rollup-config": "0.0.0"
+  }
+}

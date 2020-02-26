@@ -6,6 +6,7 @@
   "dependencies": {
     "@polymer/iron-icon": "3.0.1",
     "@polymer/iron-icons": "3.0.1",
+    "@tfg-core/css": "0.0.0",
     "@vaadin/vaadin-app-layout": "2.0.4",
     "@vaadin/vaadin-tabs": "3.0.5",
     "lit-element": "2.2.1"
