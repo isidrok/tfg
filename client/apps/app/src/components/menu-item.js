@@ -1,14 +1,13 @@
-import { LitElement, html } from 'lit-element';
-import {css} from '@tfg-core/css';
+import {Component} from '@tfg-core/component';
 import {layout} from '@tfg-style/layout';
 import menuItemCSS from './menu-item.css';
 import '@vaadin/vaadin-tabs';
 import '@polymer/iron-icon';
 import '@polymer/iron-icons';
 
-class TFGAppMenuItem extends LitElement {
+class TFGAppMenuItem extends Component {
     static get styles(){
-        return css(menuItemCSS, layout);
+        return this.css(menuItemCSS, layout);
     }
     static get properties() {
         return {
@@ -17,7 +16,7 @@ class TFGAppMenuItem extends LitElement {
     }
     render() {
         const {href, icon, label} = this.config;
-        return html`
+        return this.html`
             <vaadin-tab class="menu-item">
                 <a class="menu-item__content horizontal" href=${href}>
                     <iron-icon class="menu-item__icon" icon=${icon}></iron-icon>

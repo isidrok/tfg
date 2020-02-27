@@ -1,9 +1,12 @@
 {
-  "name": "@tfg-core/css",
+  "name": "@tfg-core/component",
   "version": "0.0.0",
   "main": "index.js",
   "private": true,
   "devDependencies": {
     "@tfg-builder/rollup-config": "0.0.0"
+  },
+  "dependencies": {
+    "lit-element": "2.2.1"
   }
 }

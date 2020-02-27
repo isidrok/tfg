@@ -6,7 +6,8 @@ export function createRouter(outlet) {
         baseURL: '',
         routes: {
             '/': { redirect: 'accounts' },
-            '/accounts': {tag: 'tfg-accounts', src: '@tfg-apps/accounts', hasChildren: true}
+            '/accounts': {tag: 'tfg-accounts', src: '@tfg-apps/accounts', hasChildren: true},
+            '/cards': {tag: 'tfg-cards', src: '@tfg-apps/cards', hasChildren: true}
         }
     }); 
-}
+} 

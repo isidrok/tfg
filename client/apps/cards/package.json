@@ -1,11 +1,10 @@
 {
-  "name": "@tfg-apps/accounts",
+  "name": "@tfg-apps/cards",
   "version": "0.0.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "lit-element": "2.2.1",
-    "@tfg-apps/cards": "0.0.0"
+    "lit-element": "2.2.1"
   },
   "devDependencies": {
     "@tfg-builder/rollup-config": "0.0.0"
