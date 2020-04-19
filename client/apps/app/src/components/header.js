@@ -1,15 +1,15 @@
-import {Component} from '@tfg-core/component';
+import {LitElement, html} from 'lit-element';
 import {layout} from '@tfg-style/layout';
 import '@vaadin/vaadin-app-layout/vaadin-drawer-toggle';
 import bank from './bank.svg';
 import headerCSS from './header.css';
 
-class TFGAppHeader extends Component {
+class TFGAppHeader extends LitElement {
     static get styles(){
-        return this.css(headerCSS, layout);
+        return [headerCSS, layout];
     }
     render() {
-        return this.html`
+        return html`
             <header class="horizontal fill-width header">
                 <vaadin-drawer-toggle></vaadin-drawer-toggle>
                 <div class="horizontal fill-width header__content">

@@ -1,0 +1,4 @@
+:host {
+    border: 1px solid var(--tfg-color-primary1);
+    display: block;
+}

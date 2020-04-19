@@ -1,10 +1,10 @@
-import {Component} from '@tfg-core/component';
+import {LitElement, html} from 'lit-element';
 import '@vaadin/vaadin-app-layout';
 
 
-class TFGAppLayout extends Component {
+class TFGAppLayout extends LitElement {
     render() {
-        return this.html`
+        return html`
             <vaadin-app-layout>
                 <slot name="header" slot="navbar"></slot>
                 <slot name="menu" slot="drawer"></slot>

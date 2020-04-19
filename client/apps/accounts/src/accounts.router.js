@@ -5,6 +5,7 @@ export function createRouter(outlet) {
         outlet,
         baseURL: '/accounts',
         routes: {
+            '/': {tag: 'tfg-accounts-list', load: () => import('./pages/list/list')},
             '/create': {tag: 'tfg-accounts-create', load: () => import('./pages/create')}
         }
     }); 

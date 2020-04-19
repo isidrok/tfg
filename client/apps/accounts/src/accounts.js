@@ -1,8 +1,7 @@
 import { LitElement, html } from 'lit-element';
 import { createRouter } from './accounts.router';
-import {str} from '@tfg-apps/cards/str';
 
-class TFGAcoounts extends LitElement {
+class TFGAccounts extends LitElement {
   async connectedCallback() {
     super.connectedCallback();
     await this.updateComplete;
@@ -14,10 +13,10 @@ class TFGAcoounts extends LitElement {
   }
   render() {
     return html`
-      <h2>Accounats ${str}</h2>
+        <h2>Accounts</h2>
       <div id="outlet"></div>
     `;
   }
 }
 
-customElements.define('tfg-accounts', TFGAcoounts);
+customElements.define('tfg-accounts', TFGAccounts);

@@ -1,14 +1,14 @@
-import {Component} from '@tfg-core/component';
 import {layout} from '@tfg-style/layout';
+import {LitElement, html} from 'lit-element';
 import { createRouter } from './app.router';
 import {MENU_ITEMS} from './menu-items';
 import './components/layout';
 import './components/menu';
 import './components/header';
 
-class TFGApp extends Component {
+class TFGApp extends LitElement {
   static get styles(){
-    return this.css(layout);
+    return layout;
   }
   async connectedCallback() {
     super.connectedCallback();
@@ -20,7 +20,7 @@ class TFGApp extends Component {
     this._router.dispose();
   }
   render() {
-    return this.html`
+    return html`
       <tfg-app-layout>
         <tfg-app-header class="fill-width" slot="header"></tfg-app-header>
         <tfg-app-menu slot="menu" .items=${MENU_ITEMS}></tfg-app-menu>
