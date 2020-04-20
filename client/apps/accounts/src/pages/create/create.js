@@ -1,8 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import {Component} from '@tfg-core/component';
 
-class TFGAccountsCreate extends LitElement {
+class TFGAccountsCreate extends Component {
   render() {
-    return html`
+    return this.html`
       <h3>New Account</h3>
     `;
   }

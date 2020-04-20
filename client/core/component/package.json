@@ -1,11 +1,10 @@
 {
-  "name": "@tfg-core/routing",
+  "name": "@tfg-core/component",
   "version": "0.0.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-core/component": "0.0.0",
-    "page": "1.11.5"
+    "lit-element": "2.3.1"
   },
   "devDependencies": {
     "@tfg-builder/rollup-config": "0.0.0"

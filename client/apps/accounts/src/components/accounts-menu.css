@@ -1,0 +1,15 @@
+.menu {
+    padding-bottom: var(--tfg-padding-small);
+}
+
+.menu__item {
+    margin-right: var(--tfg-margin-small);
+    border: 1px solid var(--tfg-color-secondary--dark);
+    background-color: var(--tfg-color-secondary);
+    padding: var(--tfg-padding-tiny);
+}
+
+.menu__item__text {
+    text-decoration: none;
+    color: var(--tfg-color-text-primary);
+}

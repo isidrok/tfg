@@ -1,13 +1,13 @@
-import { LitElement, html } from 'lit-element';
+import {Component} from '@tfg-core/component';
 import '@vaadin/vaadin-item';
 import summaryCSS from './summary.css';
 
-class TFGAccountsListSummary extends LitElement {
+class TFGAccountsListSummary extends Component {
     static get styles() {
         return summaryCSS;
     }
     render() {
-        return html`
+        return this.html`
             <vaadin-item>Foobar</vaadin-item>
         `;
     }

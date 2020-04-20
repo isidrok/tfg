@@ -1,11 +1,10 @@
 {
-  "name": "@tfg-core/routing",
+  "name": "@tfg-core/http",
   "version": "0.0.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-core/component": "0.0.0",
-    "page": "1.11.5"
+    "superagent": "5.2.2"
   },
   "devDependencies": {
     "@tfg-builder/rollup-config": "0.0.0"

@@ -25,10 +25,9 @@ module.exports = function cssModules(userConfig) {
 };
 
 function cssModule(source) {
-    // TODO: only export stylesheet when lit element supports them
     return `
         const styleSheet = new CSSStyleSheet();
         styleSheet.replaceSync(${JSON.stringify(source)});
-        export default {styleSheet:styleSheet};
+        export default styleSheet;
     `
 }

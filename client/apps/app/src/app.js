@@ -1,30 +1,20 @@
 import {layout} from '@tfg-style/layout';
-import {LitElement, html} from 'lit-element';
-import { createRouter } from './app.router';
-import {MENU_ITEMS} from './menu-items';
+import {Component} from '@tfg-core/component';
+import './app-router';
 import './components/layout';
-import './components/menu';
-import './components/header';
+import './components/header/header';
+import './components/menu/menu';
 
-class TFGApp extends LitElement {
+class TFGApp extends Component {
   static get styles(){
     return layout;
-  }
-  async connectedCallback() {
-    super.connectedCallback();
-    await this.updateComplete;
-    this._router = createRouter(this.renderRoot.getElementById('outlet'));
-  }
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    this._router.dispose();
-  }
+  } 
   render() {
-    return html`
+    return this.html`
       <tfg-app-layout>
         <tfg-app-header class="fill-width" slot="header"></tfg-app-header>
-        <tfg-app-menu slot="menu" .items=${MENU_ITEMS}></tfg-app-menu>
-        <main id="outlet"></main>
+        <tfg-app-menu slot="menu"></tfg-app-menu>
+        <tfg-app-router></tfg-app-router>
       </tfg-app-layout>
     `;
   }

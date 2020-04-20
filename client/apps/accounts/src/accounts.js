@@ -1,20 +1,13 @@
-import { LitElement, html } from 'lit-element';
-import { createRouter } from './accounts.router';
+import {Component} from '@tfg-core/component';
+import './accounts-router';
+import './components/accounts-menu';
 
-class TFGAccounts extends LitElement {
-  async connectedCallback() {
-    super.connectedCallback();
-    await this.updateComplete;
-    this._router = createRouter(this.renderRoot.getElementById('outlet'));
-  }
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    this._router.dispose();
-  }
+class TFGAccounts extends Component {
   render() {
-    return html`
-        <h2>Accounts</h2>
-      <div id="outlet"></div>
+    return this.html`
+      <h2>Accounts</h2>
+      <tfg-accounts-menu></tfg-accounts-menu>
+      <tfg-accounts-router></tfg-accounts-router>
     `;
   }
 }

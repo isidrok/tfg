@@ -2,7 +2,7 @@ import layout from './layout.css';
 
 document.adoptedStyleSheets = [
     ...document.adoptedStyleSheets,
-    layout.styleSheet
+    layout
 ];
 
 export {

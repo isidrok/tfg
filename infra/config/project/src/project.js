@@ -16,12 +16,14 @@ module.exports = {
     get IMPORT_MAP_FILENAME() { return 'import-map.json'; },
     get BUNDLED_LIBS() { 
         return [
-            'systemjs'
+            'systemjs',
+            'superagent'
         ]; 
     },
     get LIB_IMPORTS() {
         return [
-            '@vaadin/vaadin-app-layout/vaadin-drawer-toggle'
+            '@vaadin/vaadin-app-layout/vaadin-drawer-toggle',
+            'superagent/dist/superagent'
         ] 
     }
 };

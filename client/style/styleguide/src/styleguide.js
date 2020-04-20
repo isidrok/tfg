@@ -4,7 +4,7 @@ import padding from './padding.css';
 
 document.adoptedStyleSheets = [
     ...document.adoptedStyleSheets,
-    color.styleSheet,
-    margin.styleSheet,
-    padding.styleSheet
+    color,
+    margin,
+    padding
 ];

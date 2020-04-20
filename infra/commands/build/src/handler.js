@@ -1,3 +1,4 @@
+const path = require('path');
 const log = require('npmlog');
 const chokidar = require('chokidar');
 const rollupRunner = require('@tfg-builder/rollup-runner');
@@ -85,8 +86,11 @@ async function onLockFileChanges(){
     await updateImportMap();
 }
 
-async function onProjectChanges(path) {
-    const projectLocation = path.substring(0, path.lastIndexOf('/src/'));
+async function onProjectChanges(changePath) {
+    const projectLocation = changePath.substring(
+        0,
+        changePath.lastIndexOf(path.normalize('/src/'))
+    );
     const project = repoManager.findProjectByLocation(projectLocation);
     log.info('WATCH', `Detected changes on ${project}`);
     try {

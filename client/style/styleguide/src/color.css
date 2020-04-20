@@ -1,14 +1,14 @@
 :root {
-    --tfg-color-primary: #004d40;
-    --tfg-color-primary--light: #39796b;
-    --tfg-color-primary--dark: #00251a;
-    --tfg-color-secondary: #ff6f00;
-    --tfg-color-secondary--light: #ffa040;
-    --tfg-color-secondary--dark: #c43e00;
-    --tfg-color-text--primary: #ffffff;
+    --tfg-color-primary: #1676f3;
+    --tfg-color-primary--light: #6ba4ff;
+    --tfg-color-primary--dark: #004cbf;
+    --tfg-color-secondary: #cfd8dc;
+    --tfg-color-secondary--light: #ffffff;
+    --tfg-color-secondary--dark: #9ea7aa;
+    --tfg-color-text--primary: #000000;
     --tfg-color-text--secondary: #000000;
     --tfg-color-error: #f05545;
-    --tfg-color-info: #26c6da;
+    --tfg-color-info: #1565c0;
     --tfg-color-success: #8bc34a;
     --tfg-color-warning: #ffa726;
   }

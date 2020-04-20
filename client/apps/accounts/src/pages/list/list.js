@@ -1,9 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import {Component} from '@tfg-core/component';
 import './summary';
 
-class TFGAccountsList extends LitElement {
+class TFGAccountsList extends Component {
   render() {
-    return html`
+    return this.html`
       <tfg-accounts-list-summary></tfg-accounts-list-summary>
     `;
   }

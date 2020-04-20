@@ -1,3 +1,4 @@
+const path = require('path');
 const getMonorepoPackages = require('get-monorepo-packages');
 const PROJECT = require('@tfg-config/project');
 
@@ -5,7 +6,7 @@ const repoManager = {
     get packages() {
         const pkgs = [];
         for(let {package, location} of getMonorepoPackages(PROJECT.ROOT)){
-            pkgs.push({...package, location})
+            pkgs.push({...package, location: path.normalize(location)})
         }
         return pkgs;
     },
