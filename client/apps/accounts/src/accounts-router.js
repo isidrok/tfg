@@ -1,14 +1,11 @@
-import { TFGRouter } from '@tfg-core/routing';
+import { Router } from '@tfg-core/routing';
 
-class TFGAccountsRouter extends TFGRouter {
-    static get routerConfig() {
-        return {
-            baseURL: '/accounts',
-            routes: {
-                '/': {tag: 'tfg-accounts-list', load: () => import('./pages/list/list')},
-                '/create': {tag: 'tfg-accounts-create', load: () => import('./pages/create/create')}
-            }
-        };
+export const accountsRouter = new Router({
+    baseURL: '/accounts',
+    routes: {
+        '/': {tag: 'tfg-accounts-list', load: () => import('./pages/list/list') },
+        '/create': { tag: 'tfg-accounts-create', load: () => import('./pages/create/create') },
+        '/not-found': {tag: 'tfg-accounts-not-found', load: () => import('./pages/not-found/not-found')},
+        '/:id': { tag: 'tfg-accounts-details', load: () => import('./pages/details/details') }
     }
-}
-window.customElements.define('tfg-accounts-router', TFGAccountsRouter);
+});

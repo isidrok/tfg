@@ -4,8 +4,9 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-apps/cards": "0.0.0",
     "@tfg-core/component": "0.0.0",
+    "@tfg-core/http": "0.0.0",
+    "@tfg-core/routing": "0.0.0",
     "@tfg-style/layout": "0.0.0",
     "@vaadin/vaadin-item": "2.1.1"
   },

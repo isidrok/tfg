@@ -2,15 +2,20 @@ import {Component} from '@tfg-core/component';
 import '@vaadin/vaadin-item';
 import summaryCSS from './summary.css';
 
-class TFGAccountsListSummary extends Component {
+class TFGAccountsSummary extends Component {
+    static get properties(){
+        return {
+            account: {type: Object}
+        }
+    }
     static get styles() {
         return summaryCSS;
     }
     render() {
         return this.html`
-            <vaadin-item>Foobar</vaadin-item>
+            <vaadin-item>${this.account.iban}</vaadin-item>
         `;
     }
 }
 
-customElements.define('tfg-accounts-list-summary', TFGAccountsListSummary);
+customElements.define('tfg-accounts-summary', TFGAccountsSummary);

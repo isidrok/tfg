@@ -1,14 +1,14 @@
 import { Component } from '@tfg-core/component';
-import {location} from '@tfg-core/routing';
+import { appRouter } from '../app-router';
 
 class TFGAppNotFound extends Component {
     static get properties() {
         return {
             routingContext: { type: Object }
-        };
+        }; 
     }
-    _goBack(){
-        location.navigate('/')
+    _goBack() {
+        appRouter.navigate('/');
     }
     render() {
         return this.html`

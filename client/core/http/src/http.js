@@ -70,7 +70,7 @@ export class HTTPService {
             timeout = config.tiemout,
             parser = config.parser
         } = options;
-        return superAgent(method, config.baseURL + url)
+        return superAgent(method, config.baseURL + '/' + url)
             .set({ ...config.headers, ...headers })
             .query({ ...config.query, query })
             .send(body)

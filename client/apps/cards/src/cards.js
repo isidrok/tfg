@@ -9,7 +9,7 @@ class TFGCards extends LitElement {
   }
   disconnectedCallback() {
     super.disconnectedCallback();
-    this._router.dispose();
+    this._router.stop();
   }
   render() {
     return html`

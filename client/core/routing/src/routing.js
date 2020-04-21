@@ -1,47 +1,12 @@
 import page from 'page';
-import { Component } from '@tfg-core/component';
-
-class Location {
-    constructor(location){
-        this._location = location;
-        this._subscribers = [];
-        this.context = {};
-    }
-    changed(context) {
-        this.context = context;
-        this._notify();
-    }
-    listen(cb, ctx) {
-        this._subscribers.push(cb, ctx);
-        return this.unlisten.bind(this, cb, ctx);
-    }
-    unlisten(cb, ctx) {
-        const index = this._subscribers.findIndex(([_cb, _ctx]) => {
-            return _cb === cb && _ctx === ctx;
-        });
-        if(index !== -1){
-            this._subscribers.splice(index, 1);
-        }
-    }
-    navigate(path){
-        this._location.href = path;
-    }
-    _notify() {
-        this._subscribers.forEach(([cb, ctx]) => {
-            cb.call(ctx, this.context);
-        });
-    }
-};
-
-export const location = new Location(window.location);
 
 export class Router {
-    constructor({ outlet, routes, baseURL, notFound }) {
-        this._outlet = outlet;
+    constructor({ routes, baseURL }) {
         this._context = {};
+        this._subscribers = [];
         this._router = page.create();
-        this._configure(routes, baseURL, notFound);
-        this._router.start();
+        this._outlet = null;
+        this._configure(routes, baseURL);
     }
     get context() {
         return this._context;
@@ -57,7 +22,7 @@ export class Router {
     }
     _addRoute(path, routeConfig) {
         const { hasChildren, redirect } = routeConfig;
-        const route = hasChildren ? `${path}/:__CHILDROUTE__?` : path;
+        const route = hasChildren ? `${path}/:__CHILD_ROUTE__?` : path;
         if (redirect === '' || redirect) {
             this._router(route, redirect);
         } else {
@@ -72,42 +37,54 @@ export class Router {
         if (load) {
             await load();
         }
-        const element = document.createElement(tag);
-        location.changed(context);
-        element.routingContext = context;
         this._context = context;
+        const element = document.createElement(tag);
+        element.routingContext = context;
+        if(element.beforeRouteEnter) {
+            let aborted = false;
+            await element.beforeRouteEnter(context, () => {aborted = true;})
+            if(aborted) {
+                return;
+            }
+        }
         if (this._outlet.firstChild) {
             this._outlet.firstChild.replaceWith(element);
         } else {
             this._outlet.append(element);
         }
+        this._notify();
     }
-    dispose() {
-        this._router.stop();
-        this._router = null;
-        this._context = {};
-    }
-}
-
-export class TFGRouter extends Component {
-    async connectedCallback() {
-        super.connectedCallback();
-        await this.updateComplete;
-        this._router = this._createRouter();
-    }
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        this._router.dispose();
-    }
-    _createRouter() {
-        return new Router({
-            outlet: this.renderRoot.getElementById('outlet'),
-            ...this.constructor.routerConfig
+    _notify() {
+        this._subscribers.forEach(([cb, ctx]) => {
+            cb.call(ctx, this.context);
         });
     }
-    render() {
-        return this.html`
-            <div id="outlet"></div>
-        `;
+    listen(cb, ctx) {
+        this._subscribers.push(cb, ctx);
+        return this.unlisten.bind(this, cb, ctx);
+    }
+    unlisten(cb, ctx) {
+        const index = this._subscribers.findIndex(([_cb, _ctx]) => {
+            return _cb === cb && _ctx === ctx;
+        });
+        if (index !== -1) {
+            this._subscribers.splice(index, 1);
+        }
+    }
+    navigate(path) {
+        this._router.show(path);
+    }
+    redirect(path) {
+        this._router.redirect(path)
+    }
+    start(outlet)  {
+        this._outlet = outlet;
+        this._router.start();
+    }
+    stop() {
+        this._router.stop();
+        this._outlet = null;
+        this._subscribers.length = 0;
+        this._context = {};
     }
 }

@@ -24,11 +24,12 @@ function getDefaultPluginConfig(name) {
         },
         cjs: {},
         babel: {},
-        terser: {
-            output: {
-                comments: false
-            }
-        },
+        terser: null,
+        //terser: {
+          //  output: {
+            //    comments: false
+            //}
+        //},
         importMap: {
             mapFileName: PROJECT.IMPORT_MAP_FILENAME,
             baseURL: `/${name}/`

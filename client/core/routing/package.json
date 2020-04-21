@@ -4,7 +4,6 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-core/component": "0.0.0",
     "page": "1.11.5"
   },
   "devDependencies": {
