@@ -2,6 +2,8 @@ const merge = require('deepmerge');
 const PROJECT  = require('@tfg-config/project');
 
 const plugins = {
+    del: require('rollup-plugin-delete'),
+    deps: require('@tfg-builder/rollup-plugin-ensure-deps'),
     resolve: require('@rollup/plugin-node-resolve'),
     replace: require('@rollup/plugin-replace'),
     url: require('@rollup/plugin-url'),
@@ -13,11 +15,20 @@ const plugins = {
     entry: require('@tfg-builder/rollup-plugin-entry'),
 };
 
-function getDefaultPluginConfig(name) {
+function getDefaultPluginConfig(name, dir, dependencies, externals) {
     return {
+        del: {
+            targets: `${dir}/*`
+        },
+        deps: {
+            dependencies,
+            externals
+        },
         replace: null,
         cssModules: {},
-        resolve: {},
+        resolve: {
+            preferBuiltins: false
+        },
         url: {
             publicPath: `/${name}/`,
             fileName: '[name].[hash][extname]',
@@ -38,9 +49,9 @@ function getDefaultPluginConfig(name) {
     }
 }
 
-function getPlugins(projectPlugins, name) {
+function getPlugins(projectPlugins, name, dir, dependencies, externals) {
     const pluginConfig = merge(
-        getDefaultPluginConfig(name),
+        getDefaultPluginConfig(name, dir, dependencies, externals),
         projectPlugins || {}
     );
     return Object.entries(pluginConfig).map(function ([plugin, pluginOptions]) {

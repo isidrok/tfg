@@ -15,6 +15,7 @@ function libsConfig(libs) {
             input: createInput(libs),
             plugins: getPlugins({
                 replace: null,
+                deps: null,
                 resolve: {},
                 url: {
                     publicPath: `libs/`,
@@ -28,7 +29,7 @@ function libsConfig(libs) {
                     baseURL: `/libs/`
                 },
                 entry: null
-            }),
+            }, 'libs', `${PROJECT.DIST}/libs`),
         },
         outputOptions: {
             dir: `${PROJECT.DIST}/libs`,

@@ -1,18 +1,18 @@
-import { LitElement, html } from 'lit-element';
-import { createRouter } from './cards.router';
+import { Component } from '@tfg-core/component';
+import { cardsRouter } from './cards-router';
 
-class TFGCards extends LitElement {
+class TFGCards extends Component {
   async connectedCallback() {
     super.connectedCallback();
     await this.updateComplete;
-    this._router = createRouter(this.renderRoot.getElementById('outlet'));
+    cardsRouter.start(this.renderRoot.getElementById('outlet'));
   }
   disconnectedCallback() {
     super.disconnectedCallback();
-    this._router.stop();
+    cardsRouter.stop();
   }
   render() {
-    return html`
+    return this.html`
       <h2>Cards</h2>
       <div id="outlet"></div>
     `;

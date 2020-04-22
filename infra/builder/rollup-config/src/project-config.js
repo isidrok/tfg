@@ -7,7 +7,7 @@ const getPlugins = require('./plugins');
 function getDefaultInputConfig() {
     return {
         cache: null,
-        external: (id) => repoManager.externalDeps.includes(id)
+        //external: (id) => repoManager.externalDeps.includes(id)
     };
 };
 
@@ -33,7 +33,13 @@ function getInput(config, package) {
     }
     return merge(getDefaultInputConfig(), {
         input: getAbsInput(input, package),
-        plugins: getPlugins(config.plugins, repoManager.normalize(package.name)),
+        plugins: getPlugins(
+            config.plugins,
+            repoManager.normalize(package.name),
+            `${PROJECT.DIST}/${repoManager.normalize(package.name)}`,
+            Object.keys(package.dependencies || {}),
+            repoManager.externalDeps
+        ),
         ...inputConfig
     });
 }
