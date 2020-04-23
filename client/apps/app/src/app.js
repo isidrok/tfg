@@ -1,5 +1,7 @@
 import { layout } from '@tfg-style/layout';
 import { Component } from '@tfg-core/component';
+import { store } from '@tfg-core/store';
+import { appStore } from './app-store';
 import { appRouter } from './app-router';
 import './components/layout';
 import './components/header/header';
@@ -10,11 +12,13 @@ class TFGApp extends Component {
     return layout;
   }
   async connectedCallback() {
+    store.register(appStore);
     super.connectedCallback();
     await this.updateComplete;
     appRouter.start(this.renderRoot.getElementById('outlet'));
   }
   disconnectedCallback() {
+    store.unregister(appStore);
     super.disconnectedCallback();
     appRouter.stop();
   }

@@ -9,6 +9,7 @@
     "@tfg-core/component": "0.0.0",
     "@tfg-core/http": "0.0.0",
     "@tfg-core/routing": "0.0.0",
+    "@tfg-core/store": "0.0.0",
     "@tfg-style/layout": "0.0.0",
     "@vaadin/vaadin-app-layout": "2.0.4",
     "@vaadin/vaadin-tabs": "3.0.5"
