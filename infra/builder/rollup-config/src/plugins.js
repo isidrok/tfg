@@ -33,8 +33,11 @@ function getDefaultPluginConfig(name, dir, dependencies, externals) {
             publicPath: `/${name}/`,
             fileName: '[name].[hash][extname]',
         },
+        babel: {
+            plugins: ['@babel/plugin-proposal-class-properties']
+        },
         cjs: {},
-        babel: {},
+      
         terser: null,
         //terser: {
           //  output: {

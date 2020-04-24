@@ -1,15 +1,19 @@
 import {Component} from '@tfg-core/component';
 import {accountsRouter} from './accounts-router';
+import { store } from '@tfg-core/store';
+import {accountsStore} from './accounts-store';
 import './components/accounts-menu';
 
 class TFGAccounts extends Component {
   async connectedCallback() {
     super.connectedCallback();
+    store.register(accountsStore);
     await this.updateComplete;
     accountsRouter.start(this.renderRoot.getElementById('outlet'));
   }
   disconnectedCallback() {
     super.disconnectedCallback();
+    store.unregister(accountsStore);
     accountsRouter.stop();
   }
   render() {

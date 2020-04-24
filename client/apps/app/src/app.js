@@ -1,26 +1,26 @@
 import { layout } from '@tfg-style/layout';
 import { Component } from '@tfg-core/component';
 import { store } from '@tfg-core/store';
+import { router } from '@tfg-core/routing';
 import { appStore } from './app-store';
-import { appRouter } from './app-router';
+import { appRoutes } from './app-routes';
 import './components/layout';
 import './components/header/header';
 import './components/menu/menu';
 
 class TFGApp extends Component {
-  static get styles() {
-    return layout;
-  }
+  static styles = layout;
+
   async connectedCallback() {
-    store.register(appStore);
     super.connectedCallback();
+    store.register(appStore);
     await this.updateComplete;
-    appRouter.start(this.renderRoot.getElementById('outlet'));
+    router.register(appRoutes, this.renderRoot.getElementById('outlet'));
   }
   disconnectedCallback() {
-    store.unregister(appStore);
     super.disconnectedCallback();
-    appRouter.stop();
+    store.unregister(appStore);
+    // appRouter.stop();
   }
   render() {
     return this.html`

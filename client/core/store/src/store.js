@@ -37,7 +37,7 @@ class Subject {
     }
     sub(cb, ctx) {
         this._observers.push([cb, ctx]);
-        return () => unsub(cb, ctx);
+        return () => this.unsub(cb, ctx);
     }
     unsub(cb, ctx) {
         const i = this._observers.findIndex(([_cb, _ctx]) => {
@@ -132,6 +132,7 @@ export function ConnectStore(Super) {
     return class extends Super {
         constructor() {
             super();
+            this.store = store;
             this.__initProps();
             this.__unsubs = [];
         }
@@ -144,20 +145,22 @@ export function ConnectStore(Super) {
             this.__unsubscribeProps();
         }
         __initProps() {
-            Object.entries(this.constructor.connect).forEach(([prop, { from }]) => {
+            for (let [prop, config] of Object.entries(this.constructor.mapState || {})) {
+                const { from } = config;
                 this[prop] = from(store.state, store.projections);
-            });
+            }
         }
         __subscribeProps() {
-            Object.entries(this.constructor.connect).forEach(([prop, { on, from }]) => {
-                on = Array.isArray(on) ? on : [on]
-                on.forEach((mutation) => {
+            for (let [prop, config] of Object.entries(this.constructor.mapState || {})) {
+                const { on, from, } = config;
+                const mutations = [].concat(on(store.mutations));
+                mutations.forEach((mutation) => {
                     const unsub = mutation.sub(() => {
                         this[prop] = from(store.state, store.projections);
                     });
                     this.__unsubs.push(unsub);
                 });
-            });
+            }
         }
         __unsubscribeProps() {
             this.__unsubs.forEach((d) => d());

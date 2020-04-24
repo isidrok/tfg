@@ -1,28 +1,24 @@
 import { Component } from '@tfg-core/component';
-import { store, ConnectStore } from '@tfg-core/store';
+import { ConnectStore } from '@tfg-core/store';
 import { menuItemsService } from './menu-items-service';
 import '@vaadin/vaadin-tabs';
 import './menu-item';
 
 class TFGAppMenu extends ConnectStore(Component) {
-    static get properties() {
-        return {
-            items: {
-                type: Array
-            },
-        };
-    }
-    static get connect() {
-        return {
-            items: {
-                from: state => state.app.menuItems,
-                on: store.mutations.app.setMenuItems
-            }
+    static properties = {
+        items: {
+            type: Array
+        }
+    };
+    static mapState = {
+        items: {
+            from: (state) => state.app.menuItems,
+            on: (mutations) => mutations.app.setMenuItems
         }
     }
     async connectedCallback() {
         super.connectedCallback();
-        await store.actions.app.getMenuItems({ menuItemsService });
+        await this.store.actions.app.getMenuItems({ menuItemsService });
     }
     _menuItem(item) {
         return this.html`<tfg-app-menu-item .config=${item}></tfg-app-menu-item>`;
