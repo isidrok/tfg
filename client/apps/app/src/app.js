@@ -3,7 +3,7 @@ import { Component } from '@tfg-core/component';
 import { store } from '@tfg-core/store';
 import { router } from '@tfg-core/routing';
 import { appStore } from './app-store';
-import { appRoutes } from './app-routes';
+import { appRouter } from './app-router';
 import './components/layout';
 import './components/header/header';
 import './components/menu/menu';
@@ -15,12 +15,12 @@ class TFGApp extends Component {
     super.connectedCallback();
     store.register(appStore);
     await this.updateComplete;
-    router.register(appRoutes, this.renderRoot.getElementById('outlet'));
+    appRouter.start(this.renderRoot.getElementById('outlet'));
   }
   disconnectedCallback() {
     super.disconnectedCallback();
     store.unregister(appStore);
-    // appRouter.stop();
+    appRouter.stop();
   }
   render() {
     return this.html`
