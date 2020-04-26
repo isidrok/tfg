@@ -1,7 +1,8 @@
 export const accountsStore = {
     namespace: 'accounts',
     state: {
-        accounts: []
+        accounts: [],
+        movements: []
     },
     mutations: {
         setAccounts(state, { accounts }) {

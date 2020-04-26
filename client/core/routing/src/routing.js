@@ -1,90 +1,85 @@
-import page from 'page';
-
+import Navaid from './navaid';
+const CHILD_ROUTE = '__CHILD_ROUTE__';
 export class Router {
-    constructor({ routes, baseURL }) {
+    constructor({ baseURL, routes }) {
+        this._router = new Navaid(baseURL);
+        this._registerRoutes(routes);
         this._context = {};
-        this._subscribers = [];
-        this._router = page.create();
         this._outlet = null;
-        this._configure(routes, baseURL);
     }
     get context() {
         return this._context;
     }
-    _configure(routes, baseURL) {
-        baseURL && this._router.base(baseURL);
-        this._registerRoutes(routes);
-    }
     _registerRoutes(routes) {
-        Object.entries(routes).forEach(([path, routeConfig]) => {
-            this._addRoute(path, routeConfig);
-        });
+        Object.entries(routes).forEach(([path, config]) => {
+            config.path = path;
+            this._addRoute(path, config);
+        })
     }
-    _addRoute(path, routeConfig) {
-        const { hasChildren, redirect } = routeConfig;
-        const route = hasChildren ? `${path}/:__CHILD_ROUTE__?` : path;
-        if (redirect === '' || redirect) {
-            this._router(route, redirect);
+    _addRoute(path, config) {
+        const { redirect, hasChildren } = config;
+        const route = hasChildren ? path + `/:${CHILD_ROUTE}?` : path;
+        if (typeof redirect !== 'undefined') {
+            this._router.on(route, this.redirect.bind(this, redirect));
         } else {
-            this._router(route, this._routeCallback.bind(this, routeConfig));
+            this._router.on(route, this._routeCallback.bind(this, config));
         }
     }
-    async _routeCallback(routeConfig, context) {
-        const { src, load, tag } = routeConfig;
-        if (src) {
-            await import(src);
-        }
-        if (load) {
-            await load();
-        }
+    async _routeCallback(config, context) {
         this._context = context;
-        const element = document.createElement(tag);
-        element.routingContext = context;
-        if(element.beforeRouteEnter) {
-            let aborted = false;
-            await element.beforeRouteEnter(context, () => {aborted = true;})
-            if(aborted) {
-                return;
-            }
+        if (this._isChildrenActive(config)) {
+            return;
         }
+        await this._loadResources(config);
+        const element = this._createElement(config);
+        const abort = await this._callElementCallback(element);
+        if (abort) {
+            return;
+        }
+        this._renderElement(element);
+    }
+    _isChildrenActive(config) {
+        const { hasChildren, path } = config;
+        const { firstChild } = this._outlet;
+        return hasChildren && firstChild && firstChild.dataset.path === path;
+    }
+    async _loadResources(config) {
+        const { src, load } = config;
+        src && await import(src);
+        load && await load();
+    }
+    _createElement(config) { 
+        const { tag, path } = config;
+        const element = document.createElement(tag);
+        element.dataset.path = path;
+        element.routingContext = this.context;
+        return element;
+    }
+    async _callElementCallback(element) {
+        let abort = false;
+        if (element.beforeRouteEnter) {
+            await element.beforeRouteEnter(this._context, () => { abort = true; })
+        }
+        return abort;
+    }
+    _renderElement(element){
         if (this._outlet.firstChild) {
             this._outlet.firstChild.replaceWith(element);
         } else {
             this._outlet.append(element);
         }
-        this._notify();
-    }
-    _notify() {
-        this._subscribers.forEach(([cb, ctx]) => {
-            cb.call(ctx, this.context);
-        });
-    }
-    listen(cb, ctx) {
-        this._subscribers.push(cb, ctx);
-        return this.unlisten.bind(this, cb, ctx);
-    }
-    unlisten(cb, ctx) {
-        const index = this._subscribers.findIndex(([_cb, _ctx]) => {
-            return _cb === cb && _ctx === ctx;
-        });
-        if (index !== -1) {
-            this._subscribers.splice(index, 1);
-        }
     }
     navigate(path) {
-        this._router.show(path);
+        this._router.route(path);
     }
     redirect(path) {
-        this._router.redirect(path)
+        this._router.route(path, true)
     }
-    start(outlet)  {
+    start(outlet) {
         this._outlet = outlet;
-        this._router.start();
+        this._router.listen();
     }
     stop() {
-        this._router.stop();
-        this._outlet = null;
-        this._subscribers.length = 0;
-        this._context = {};
+        this._router.unlisten && this._router.unlisten();
     }
 }

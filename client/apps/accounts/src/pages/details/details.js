@@ -1,6 +1,6 @@
-import {Component} from '@tfg-core/component';
+import { Component } from '@tfg-core/component';
 import { accountsService } from '../../services/accounts-service';
-import {accountsRouter} from '../../accounts-router';
+import { accountsRouter } from '../../accounts-router';
 
 class TFGAccountsDetails extends Component {
   static get properties() {
@@ -10,7 +10,7 @@ class TFGAccountsDetails extends Component {
   }
   async beforeRouteEnter(context, abort) {
     try {
-      this.account = await accountsService.get(context.params.id);
+      this.account = await accountsService.get(context.id);
     } catch (err) {
       abort();
       accountsRouter.redirect('/accounts/not-found');
