@@ -1,23 +1,34 @@
 import Navaid from './navaid';
+import { Component } from '@tfg-core/component';
 const CHILD_ROUTE = '__CHILD_ROUTE__';
+
 export class Router {
-    constructor({ baseURL, routes }) {
+    constructor({ baseURL, routes, preloader }) {
+        this._baseURL = baseURL;
         this._router = new Navaid(baseURL);
+        this._preloads = this._mapNamesToResources(routes);
         this._registerRoutes(routes);
         this._context = {};
         this._outlet = null;
+        preloader && createPreloader(this, preloader);
     }
     get context() {
         return this._context;
     }
     _registerRoutes(routes) {
-        Object.entries(routes).forEach(([path, config]) => {
-            config.path = path;
-            this._addRoute(path, config);
+        routes.forEach((config) => {
+            this._addRoute(config);
         })
     }
-    _addRoute(path, config) {
-        const { redirect, hasChildren } = config;
+    _mapNamesToResources(routes) {
+        const map = {};
+        for (let { name, load } of routes) {
+            map[name] = load;
+        }
+        return map;
+    }
+    _addRoute(config) {
+        const { path, redirect, hasChildren } = config;
         const route = hasChildren ? path + `/:${CHILD_ROUTE}?` : path;
         if (typeof redirect !== 'undefined') {
             this._router.on(route, this.redirect.bind(this, redirect));
@@ -44,11 +55,10 @@ export class Router {
         return hasChildren && firstChild && firstChild.dataset.path === path;
     }
     async _loadResources(config) {
-        const { src, load } = config;
-        src && await import(src);
+        const { load } = config;
         load && await load();
     }
-    _createElement(config) { 
+    _createElement(config) {
         const { tag, path } = config;
         const element = document.createElement(tag);
         element.dataset.path = path;
@@ -62,7 +72,7 @@ export class Router {
         }
         return abort;
     }
-    _renderElement(element){
+    _renderElement(element) {
         if (this._outlet.firstChild) {
             this._outlet.firstChild.replaceWith(element);
         } else {
@@ -82,4 +92,32 @@ export class Router {
     stop() {
         this._router.unlisten && this._router.unlisten();
     }
+    preload(name) {
+        const load = this._preloads[name];
+        load && load();
+    }
+}
+
+function createPreloader(router, name) {
+    customElements.define(name, class Preloader extends Component {
+        static properties = {
+            name: { type: String }
+        };
+        connectedCallback() {
+            super.connectedCallback();
+            this.addEventListener('focus', this._preload);
+            this.addEventListener('mouseenter', this._preload);
+        }
+        disconnectedCallback() {
+            super.disconnectedCallback();
+            this.removeEventListener('focus', this._preload);
+            this.removeEventListener('mouseenter', this._preload);
+        }
+        _preload = () => {
+            router.preload(this.name);
+        }
+        render() {
+            return this.html`<slot></slot>`;
+        }
+    });
 }

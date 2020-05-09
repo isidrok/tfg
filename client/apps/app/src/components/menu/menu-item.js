@@ -1,12 +1,12 @@
-import {Component} from '@tfg-core/component';
-import {layout} from '@tfg-style/layout';
+import { Component } from '@tfg-core/component';
+import { layout } from '@tfg-style/layout';
 import menuItemCSS from './menu-item.css';
 import '@vaadin/vaadin-tabs';
 import '@polymer/iron-icon';
 import '@polymer/iron-icons';
 
 class TFGAppMenuItem extends Component {
-    static get styles(){
+    static get styles() {
         return [menuItemCSS, layout];
     }
     static get properties() {
@@ -15,16 +15,16 @@ class TFGAppMenuItem extends Component {
         };
     }
     render() {
-        const {href, icon, label} = this.config;
+        const { href, icon, label } = this.config;
         return this.html`
             <vaadin-tab class="menu-item">
-                <a class="menu-item__content horizontal" href=${href}>
-                    <iron-icon class="menu-item__icon" icon=${icon}></iron-icon>
-                    ${label}
-                </a>
+                    <a class="menu-item__content horizontal" href=${href}>
+                        <iron-icon class="menu-item__icon" icon=${icon}></iron-icon>
+                        ${label}
+                    </a>
             </vaadin-tab>
-        `
+        `;
     }
-}
+} 
 
 customElements.define('tfg-app-menu-item', TFGAppMenuItem);
