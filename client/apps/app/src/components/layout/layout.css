@@ -2,6 +2,13 @@
     display: block;
     height: 100%;
 }
+.layout__title {
+    display: flex;
+    justify-content: center;
+}
+.layout__logo {
+    height: 5rem;
+}
 
 .layout__content {
     height: 100%;

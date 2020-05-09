@@ -4,6 +4,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
+    "@material/mwc-icon": "0.15.0",
     "@tfg-core/component": "0.0.0",
     "@tfg-core/http": "0.0.0",
     "@tfg-core/routing": "0.0.0",
