@@ -104,26 +104,29 @@ class Store {
         this.mutations[ns] = null;
     }
     _decorateActions(actions, ns) {
+        const decoratedActions = {}
         for (let [name, fn] of Object.entries(actions)) {
-            actions[name] = async (payload) => {
+            decoratedActions[name] = async (payload) => {
                 await fn(actionContext(this, ns), payload);
             }
         }
-        return actions;
+        return decoratedActions;
     }
     _decorateProjections(projections, ns) {
+        const decoratedProjections = {};
         for (let [name, fn] of Object.entries(projections)) {
-            projections[name] = (payload) => {
+            decoratedProjections[name] = (payload) => {
                 return fn(projectionContext(this, ns), payload);
             }
         }
-        return projections;
+        return decoratedProjections;
     }
     _decorateMutations(mutations, ns) {
+        const decoratedMutations = {};
         for (let [name, fn] of Object.entries(mutations)) {
-            mutations[name] = new Mutation(fn, this, ns)
+            decoratedMutations[name] = new Mutation(fn, this, ns)
         }
-        return mutations;
+        return decoratedMutations;
     }
 }
 export const store = new Store();

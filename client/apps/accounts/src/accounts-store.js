@@ -10,7 +10,7 @@ export const accountsStore = {
         }
     },
     actions: {
-        async getAccounts({ mutations, state }, { accountsService }) {
+        async getAccounts({ mutations }, { accountsService }) {
             const accounts = await accountsService.getAll();
             mutations.setAccounts.exec({accounts});
         }
