@@ -1,15 +1,12 @@
-import { layout } from '@tfg-style/layout';
 import { Component } from '@tfg-core/component';
 import { store } from '@tfg-core/store';
-import { router } from '@tfg-core/routing';
 import { appStore } from './app-store';
 import { appRouter } from './app-router';
-import './components/layout';
-import './components/header/header';
-import './components/menu/menu';
+import appCSS from './app.css';
+import './components/layout/layout';
 
 class TFGApp extends Component {
-  static styles = layout;
+  static styles = appCSS;
 
   async connectedCallback() {
     super.connectedCallback();
@@ -25,9 +22,7 @@ class TFGApp extends Component {
   render() {
     return this.html`
       <tfg-app-layout>
-        <tfg-app-header class="fill-width" slot="header"></tfg-app-header>
-        <tfg-app-menu slot="menu"></tfg-app-menu>
-        <main id="outlet"></main>
+        <main id="outlet" class="app"></main>
       </tfg-app-layout>
     `;
   }

@@ -4,14 +4,11 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@polymer/iron-icon": "3.0.1",
-    "@polymer/iron-icons": "3.0.1",
     "@tfg-core/component": "0.0.0",
     "@tfg-core/http": "0.0.0",
     "@tfg-core/routing": "0.0.0",
     "@tfg-core/store": "0.0.0",
-    "@tfg-style/layout": "0.0.0",
-    "@vaadin/vaadin-item": "2.1.1"
+    "@tfg-style/layout": "0.0.0"
   },
   "devDependencies": {
     "@tfg-builder/rollup-config": "0.0.0"

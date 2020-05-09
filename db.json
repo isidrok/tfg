@@ -2,12 +2,14 @@
     "menu-items": [
         {
             "label": "Accounts",
-            "icon": "account-balance",
+            "name": "accounts",
+            "icon": "account_balance",
             "href": "/accounts"
         },
         {
             "label": "Cards",
-            "icon": "payment",
+            "name": "cards",
+            "icon": "credit_card",
             "href": "/cards"
         }
     ],

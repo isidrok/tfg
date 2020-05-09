@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found__icon {
+    color: var(--tfg-color-warning);
+    --mdc-icon-size: 4em
+}
+
+.not-found__title {
+    display: flex;
+}

@@ -1,5 +1,4 @@
 import {Component} from '@tfg-core/component';
-import '@vaadin/vaadin-item';
 import summaryCSS from './summary.css';
 
 class TFGAccountsSummary extends Component {

@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@tfg-apps/app": "0.0.0",
-    "@tfg-style/layout": "0.0.0",
+    "@tfg-style/base": "0.0.0",
     "@tfg-style/styleguide": "0.0.0",
     "systemjs": "6.1.9"
   },

@@ -22,8 +22,8 @@ module.exports = {
     },
     get LIB_IMPORTS() {
         return [
-            '@vaadin/vaadin-app-layout/vaadin-drawer-toggle',
-            'superagent/dist/superagent'
+            'superagent/dist/superagent',
+            '@material/mwc-list/mwc-list-item'
         ] 
     }
 };

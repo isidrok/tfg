@@ -12,7 +12,7 @@
     "start": "run-p watch serve mock",
     "watch": "tfg build -w",
     "serve": "tfg serve -p dev",
-    "mock": "json-server db.json",
+    "mock": "json-server -w db.json",
     "build:all": "tfg build -a",
     "build:libs": "tfg build -l",
     "prepare": "tfg build -a"

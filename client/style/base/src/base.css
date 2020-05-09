@@ -1,0 +1,20 @@
+@media (min-width: 768px) {
+    html {
+      font-size: calc(1rem + ((1vw - 7.68px) * 0.3472));
+      min-height: 0vw;
+    }
+}
+@media (min-width: 1920px) {
+    html {
+      font-size: 20px;
+    }
+}
+
+html, body{
+  height: 100%;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0; 
+}

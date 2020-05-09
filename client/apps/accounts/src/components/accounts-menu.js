@@ -1,8 +1,6 @@
 import {Component} from '@tfg-core/component';
 import { layout } from '@tfg-style/layout';
 import accountsMenuCSS from './accounts-menu.css';
-import '@polymer/iron-icon';
-import '@polymer/iron-icons';
 
 class TFGAccountsMenu extends Component {
     static get styles() {
