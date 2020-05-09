@@ -6,6 +6,10 @@ const insertImportMap = require('@tfg-builder/import-map');
 const repoManager = require('@tfg-utils/repo');
 const PROJECT = require('@tfg-config/project');
 
+function exitWithError(){
+    process.exit(1);
+}
+
 async function updateImportMap() {
     try {
         log.info('BUILD', `Generating import map...`);
@@ -13,7 +17,7 @@ async function updateImportMap() {
         log.info('BUILD', `Import map generated`);
     } catch (err) {
         log.error('BUILD', `Error generating import map: ${err.stack}`);
-        throw err;
+        exitWithError();
     }
 }
 
@@ -34,7 +38,7 @@ async function buildProjects(projects) {
         log.info('BUILD', `Finished building all projects`);
     } catch (err) {
         log.error('BUILD', `Error building projects: ${err.stack}`);
-        throw err;
+        exitWithError();
     }
 }
 
@@ -46,7 +50,7 @@ async function buildLibs() {
         log.info('BUILD', `Finished building all libraries`);
     } catch (err) {
         log.error('BUILD', `Error building libraries: ${err.stack}`);
-        throw err;
+        exitWithError();
     }
 }
 
@@ -123,6 +127,6 @@ module.exports = async function (options) {
         }
     } catch (err) {
         log.error('BUILD', err);
-        process.exitCode = 1; 
+        exitWithError();
     }
 };
