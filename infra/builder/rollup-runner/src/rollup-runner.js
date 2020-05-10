@@ -8,7 +8,7 @@ const cache = {};
 
 function getConfig(package) {
     try {
-        const config = require(path.join(package.location, PROJECT.CONFIG_FILE));
+        const config = require(path.join(package.location, PROJECT.BUILD_CONFIG_FILE));
         return config(package);
     } catch (err) {
         throw new Error(`Could not load project ${package.name} config file`);

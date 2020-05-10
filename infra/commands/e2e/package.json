@@ -1,0 +1,11 @@
+{
+  "name": "@tfg-commands/e2e",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@tfg-testing/e2e": "0.0.0",
+    "@tfg-utils/repo": "0.0.0",
+    "npmlog": "4.1.2"
+  }
+}

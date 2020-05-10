@@ -10,13 +10,15 @@
   ],
   "scripts": {
     "start": "run-p watch serve:dev mock",
+    "e2e": "tfg e2e",
     "watch": "tfg build -w",
     "serve:dev": "tfg serve -p dev",
     "serve:e2e": "tfg serve -p e2e",
     "mock": "json-server -q -w db.json",
     "build:all": "tfg build -a",
     "build:libs": "tfg build -l",
-    "prepare": "tfg build -a"
+    "prepare": "tfg build -a",
+    "prepare:e2e": "run-p mock serve:e2e"
   },
   "devDependencies": {
     "@tfg-commands/cli": "0.0.0",
