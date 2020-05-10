@@ -1,5 +1,6 @@
 exports.config = {
   tests: './*_test.js',
+  output: 'logs',
   helpers: {
     WebDriver: {
       url: 'http://localhost:8085',
