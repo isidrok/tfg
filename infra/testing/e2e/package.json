@@ -1,0 +1,10 @@
+{
+  "name": "@tfg-testing/e2e",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@wdio/selenium-standalone-service": "5.16.10",
+    "codeceptjs": "2.6.3"
+  }
+}

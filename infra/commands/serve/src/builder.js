@@ -3,7 +3,7 @@ module.exports = {
     profile: {
         alias: 'p',
         describe: 'server profile',
-        choices: ['dev'],
+        choices: ['dev', 'e2e'],
         default: 'dev'
     }
 };

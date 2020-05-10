@@ -1,19 +1,15 @@
 const historyApiFallback = require('connect-history-api-fallback');
 const PROJECT = require('@tfg-config/project');
 
-const dev = {
-    files: [`${PROJECT.DIST}/**/*`],
-    watch: true,
-    watchEvents: ['add', 'change'],
-    watchOptions: {
-      awaitWriteFinish: true,
-    },
+const e2e = {
+    watch: false,
+    ui: false,
     server: PROJECT.DIST,
-    port: 8080,
+    port: 8085,
     minify: false,
     notify: false,
     open: false,
     middleware: [ historyApiFallback() ]
   };
 
-  module.exports = dev;
+  module.exports = e2e;

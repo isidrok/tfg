@@ -9,10 +9,11 @@
     "infra/*/*"
   ],
   "scripts": {
-    "start": "run-p watch serve mock",
+    "start": "run-p watch serve:dev mock",
     "watch": "tfg build -w",
-    "serve": "tfg serve -p dev",
-    "mock": "json-server -w db.json",
+    "serve:dev": "tfg serve -p dev",
+    "serve:e2e": "tfg serve -p e2e",
+    "mock": "json-server -q -w db.json",
     "build:all": "tfg build -a",
     "build:libs": "tfg build -l",
     "prepare": "tfg build -a"
