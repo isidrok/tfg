@@ -1,0 +1,15 @@
+{
+  "name": "@tfg-commands/ut",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@tfg-builder/import-map": "0.0.0",
+    "@tfg-builder/rollup-runner": "0.0.0",
+    "@tfg-config/project": "0.0.0",
+    "@tfg-utils/repo": "0.0.0",
+    "chokidar": "3.3.1",
+    "glob": "7.1.6",
+    "npmlog": "4.1.2"
+  }
+}

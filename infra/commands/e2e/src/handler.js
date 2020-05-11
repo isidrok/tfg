@@ -2,10 +2,6 @@ const log = require('npmlog');
 const {e2eRunner} = require('@tfg-testing/e2e');
 const repoManager = require('@tfg-utils/repo');
 
-function exitWithError() {
-    process.exit(1);
-}
-
 async function testProject(project) {
     log.info('E2E', `Testing ${project}...`);
     const package = repoManager.findPackage(project);
@@ -22,6 +18,6 @@ module.exports = async function (options) {
         await testProject(project)
     } catch (err) {
         log.error('E2E', err);
-        exitWithError();
+        process.exitCode = 1;
     }
 };

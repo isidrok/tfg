@@ -39,11 +39,11 @@ function getDefaultPluginConfig(name, dir, dependencies, externals) {
         cjs: {},
       
         terser: null,
-        //terser: {
-          //  output: {
-            //    comments: false
-            //}
-        //},
+        terser: {
+           output: {
+               comments: false
+            }
+        },
         importMap: {
             mapFileName: PROJECT.IMPORT_MAP_FILENAME,
             baseURL: `/${name}/`

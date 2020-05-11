@@ -29,6 +29,13 @@ async function buildLibs(libs) {
     await bundle.write(outputOptions);
 }
 
+async function buildTests(tests, package) {
+    const config = rollupConfig.testsConfig(tests, package);
+    const { inputOptions, outputOptions } = config;
+    const bundle = await rollup(inputOptions);
+    await bundle.write(outputOptions);
+}
+
 async function buildProjectWithCache(package) {
     const { name } = package;
     const config = getConfig(package);
@@ -38,8 +45,19 @@ async function buildProjectWithCache(package) {
     await bundle.write(outputOptions);
 }
 
+async function buildTestsWithCache(tests) {
+    const config = rollupConfig.testsConfig(tests);
+    const { inputOptions, outputOptions } = config;
+    const bundle = await rollup({ ...inputOptions, cache: cache.tests });
+    cache.tests = bundle.cache;
+    await bundle.write(outputOptions);
+}
+
+
 module.exports = {
     buildProject,
     buildLibs,
-    buildProjectWithCache
+    buildProjectWithCache,
+    buildTests,
+    buildTestsWithCache
 };

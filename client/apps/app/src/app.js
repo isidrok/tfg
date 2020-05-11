@@ -29,3 +29,5 @@ class TFGApp extends Component {
 }
 
 customElements.define('tfg-app', TFGApp);
+
+export default TFGApp;

@@ -10,6 +10,7 @@
     "@tfg-commands/build": "0.0.0",
     "@tfg-commands/e2e": "0.0.0",
     "@tfg-commands/serve": "0.0.0",
+    "@tfg-commands/ut": "0.0.0",
     "yargs": "15.1.0"
   }
 }

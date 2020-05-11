@@ -7,7 +7,6 @@ const getPlugins = require('./plugins');
 function getDefaultInputConfig() {
     return {
         cache: null,
-        //external: (id) => repoManager.externalDeps.includes(id)
     };
 };
 

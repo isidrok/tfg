@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
     get ROOT() { return path.resolve(__dirname, '..', '..', '..', '..'); },
+    get CLIENT() { return path.resolve(this.ROOT, 'client'); },
     get LOCK_FILE() { return path.resolve(this.ROOT, 'yarn.lock')},
     get DIST() { return path.resolve(this.ROOT, 'dist'); },
     get LOGS() { return path.resolve(this.ROOT, 'logs'); },

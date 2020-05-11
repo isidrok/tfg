@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const path = require('path');
 const { minify } = require('html-minifier');
 
 const defaults = {
@@ -32,7 +33,7 @@ module.exports = function entry(options) {
 function getSources(outputOptions, bundle, conf) {
     const entries = Object.values(bundle).filter((file) => file.isEntry);
     const dest = outputOptions.dir.replace(conf.basePath, '');
-    return entries.map((entry) => `${dest}/${entry.fileName}`);
+    return entries.map((entry) => path.posix.join(dest, entry.fileName));
 }
 
 function getScripts(sources) {
