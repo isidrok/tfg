@@ -14,10 +14,10 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: true,
     concurrency: Infinity,
-    customContextFile: path.join(PROJECT.DIST, 'context.html'),
+    customContextFile: PROJECT.INDEX_UT,
     urlRoot: '/__karma__/',
     proxies: {
       '/': '/absolute' + PROJECT.DIST + '/'

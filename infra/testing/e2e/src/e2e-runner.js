@@ -2,7 +2,6 @@ const path = require('path');
 const execa = require('execa');
 const PROJECT = require('@tfg-config/project');
 
-
 function getConfig(package) {
     try {
         console.log(path.join(package.location, PROJECT.E2E_CONFIG_FILE))

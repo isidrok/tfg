@@ -17,11 +17,14 @@ async function buildImportMap() {
     return JSON.stringify(importMap);
 }
 
-async function insertImportMap() {
+async function insertImportMap({from, to}) {
     const importMap = await buildImportMap();
-    const tmpl = await fs.readFile(PROJECT.TEMPLATE_HTML, 'utf8');
+    const tmpl = await fs.readFile(from, 'utf8');
     const html = tmpl.replace('${importMap}', importMap);
-    await fs.writeFile(PROJECT.INDEX_HTML, html);
+    await fs.writeFile(to, html);
 }
 
-module.exports = insertImportMap;
+module.exports = {
+    insertImportMap,
+    buildImportMap
+};

@@ -1,13 +1,14 @@
-const path = require('path');
+const {resolve} = require('path');
 
 module.exports = {
-    get ROOT() { return path.resolve(__dirname, '..', '..', '..', '..'); },
-    get CLIENT() { return path.resolve(this.ROOT, 'client'); },
-    get LOCK_FILE() { return path.resolve(this.ROOT, 'yarn.lock')},
-    get DIST() { return path.resolve(this.ROOT, 'dist'); },
-    get LOGS() { return path.resolve(this.ROOT, 'logs'); },
-    get INDEX_HTML() { return path.resolve(this.DIST, 'index.html')},
-    get TEMPLATE_HTML() {return path.resolve(this.DIST, 'index.tmpl.html')},
+    get ROOT() { return resolve(__dirname, '..', '..', '..', '..'); },
+    get LOCK_FILE() { return resolve(this.ROOT, 'yarn.lock')},
+    get DIST() { return resolve(this.ROOT, 'dist'); },
+    get LOGS() { return resolve(this.ROOT, 'logs'); },
+    get INDEX_HTML() { return resolve(this.DIST, 'index.html')},
+    get TEMPLATE_HTML() {return resolve(this.DIST, 'index.tmpl.html')},
+    get TEMPLATE_UT(){ return resolve(this.ROOT, 'infra', 'testing', 'ut', 'src', 'context.tmpl.html')},
+    get INDEX_UT(){return resolve(this.DIST, 'context.html')},
     get BUILD_CONFIG_FILE() { return 'build-config.js'; },
     get E2E_CONFIG_FILE() { return 'e2e-config.js'; },
     get SRC_FOLDER() { return 'src'; },
