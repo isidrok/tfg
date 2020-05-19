@@ -1,11 +1,12 @@
 import { Component } from '@tfg-core/component';
 import { ConnectStore } from '@tfg-core/store';
-
 import { accountsRouter } from '../../accounts-router';
 import { accountsService } from '../../services/accounts-service';
+import listCSS from './list.css';
 import './summary';
 
 class TFGAccountsList extends ConnectStore(Component) {
+  static styles = listCSS;
   static properties = {
     accounts: { type: Array }
   }
@@ -21,7 +22,7 @@ class TFGAccountsList extends ConnectStore(Component) {
   }
   _renderAccount(account) {
     return this.html`
-      <tfg-accounts-summary data-id=${account.id} .account=${account}></tfg-accounts-summary>
+      <tfg-accounts-summary tabindex="1" class="list__item" data-id=${account.id} .account=${account}></tfg-accounts-summary>
     `;
   }
   _onClick(ev) {

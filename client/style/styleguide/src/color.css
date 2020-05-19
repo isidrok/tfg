@@ -1,13 +1,14 @@
 :root {
-    --tfg-color-primary: #1676f3;
-    --tfg-color-primary--light: #6ba4ff;
-    --tfg-color-primary--dark: #004cbf;
-    --tfg-color-secondary: #cfd8dc;
-    --tfg-color-secondary--light: #ffffff;
-    --tfg-color-secondary--dark: #9ea7aa;
-    --tfg-color-text--primary: #000000;
-    --tfg-color-text--secondary: #000000;
-    --tfg-color-error: #f05545;
+    --tfg-color-background: #ffffff;
+    --tfg-color-primary: #6200ee;
+    --tfg-color-primary--light: #9e47ff;
+    --tfg-color-primary--dark: #0400ba;
+    --tfg-color-secondary: #018786;
+    --tfg-color-secondary--light: #4fb7b6;
+    --tfg-color-secondary--dark: #005959;
+    --tfg-color-on-primary: #ffffff;
+    --tfg-color-on-secondary: #ffffff;
+    --tfg-color-error: #b00020;
     --tfg-color-info: #1565c0;
     --tfg-color-success: #8bc34a;
     --tfg-color-warning: #ffa726;

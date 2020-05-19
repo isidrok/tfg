@@ -1,6 +1,7 @@
-import {Component} from '@tfg-core/component';
+import { Component } from '@tfg-core/component';
 import { layout } from '@tfg-style/layout';
 import accountsMenuCSS from './accounts-menu.css';
+import '@material/mwc-icon';
 
 class TFGAccountsMenu extends Component {
     static get styles() {
@@ -9,18 +10,14 @@ class TFGAccountsMenu extends Component {
     render() {
         return this.html`
             <div class="menu horizontal">
-                <div class="menu__item">
-                    <a class="menu__item__text" href="/accounts">
-                    <iron-icon icon="icons:account-balance-wallet"></iron-icon>
-                        Show all
-                    </a>
-                </div>
-                <div class="menu__item">
-                    <a class="menu__item__text" href="/accounts/create">
-                        <iron-icon icon="icons:add"></iron-icon>
-                        Create an account
-                    </a>
-                </div>
+                <a class="menu__item" href="/accounts">
+                    <mwc-icon class="menu__item__icon">list</mwc-icon>
+                    <span class="menu__item__text">Show all</span>
+                </a>
+                <a class="menu__item" href="/accounts/create">
+                    <mwc-icon class="menu__item__icon">add</mwc-icon>
+                    <span class="menu__item__text">New Account</span>
+                </a>
             </div>
         `;
     }

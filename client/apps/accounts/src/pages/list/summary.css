@@ -1,4 +1,12 @@
 :host {
-    border: 1px solid var(--tfg-color-primary);
+    height: 100%;
+    width: 100%;
     display: block;
-} 
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--tfg-padding-small);
+    cursor: pointer;
+}

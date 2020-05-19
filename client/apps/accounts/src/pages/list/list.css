@@ -1,0 +1,10 @@
+.list__item {
+    margin-bottom: var(--tfg-margin-medium);
+    border: 1px solid var(--tfg-color-primary);
+    border-radius: 9px;
+}
+
+.list__item:hover, .list__item:focus {
+    background-color: var(--tfg-color-primary);
+    color: var(--tfg-color-on-primary);
+}

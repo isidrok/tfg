@@ -1,18 +1,17 @@
-import {Component} from '@tfg-core/component';
+import { Component } from '@tfg-core/component';
 import summaryCSS from './summary.css';
-
 class TFGAccountsSummary extends Component {
-    static get properties(){
-        return {
-            account: {type: Object}
-        }
-    }
-    static get styles() {
-        return summaryCSS;
-    }
+    static properties = {
+        account: { type: Object }
+    };
+    static styles = summaryCSS;
+
     render() {
         return this.html`
-            <vaadin-item>${this.account.iban}</vaadin-item>
+            <div class="summary">
+                <p>${this.account.iban}</p>
+                <p>${this.account.balance} €</p>
+            </div>
         `;
     }
 }

@@ -4,12 +4,12 @@
 
 .menu__item {
     margin-right: var(--tfg-margin-small);
-    border: 1px solid var(--tfg-color-secondary--dark);
-    background-color: var(--tfg-color-secondary);
-    padding: var(--tfg-padding-tiny);
-}
-
-.menu__item__text {
+    border: 1px solid var(--tfg-color-primary);
+    border-radius: 4px;
+    color: var(--tfg-color-primary);
+    padding: 0 var(--tfg-padding-medium);
     text-decoration: none;
-    color: var(--tfg-color-text-primary);
+    background-color: var(--tfg-color-on-primary);
+    display: flex;
+    align-items: center;
 }

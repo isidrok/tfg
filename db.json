@@ -19,9 +19,24 @@
             "iban": "ES2814657284123818141832",
             "balance": 3345.12,
             "movements": [
-                "6c5d0462-8342-11ea-bc55-0242ac130003",
-                "6c5d06e2-8342-11ea-bc55-0242ac130003",
-                "6c5d0840-8342-11ea-bc55-0242ac130003"
+                {
+                    "id": "6c5d0462-8342-11ea-bc55-0242ac130003",
+                    "type": 1,
+                    "concept": "Factura 3",
+                    "ammount": 1259.23
+                },
+                {
+                    "id": "6c5d06e2-8342-11ea-bc55-0242ac130003",
+                    "type": 0,
+                    "concept": "Cuota de la Seg. Social",
+                    "ammount": 279.99
+                },
+                {
+                    "id": "6c5d0840-8342-11ea-bc55-0242ac130003",
+                    "type": 0,
+                    "concept": "Adeudo grupo xInternetPlus",
+                    "ammount": 45.50
+                }
             ]
         },
         {
@@ -29,48 +44,25 @@
             "iban": "ES0631901111957695743947",
             "balance": 1005.37,
             "movements": [
-                "8133427a-8342-11ea-bc55-0242ac130003",
-                "81334496-8342-11ea-bc55-0242ac130003",
-                "8133472a-8342-11ea-bc55-0242ac130003"
+                {
+                    "id": "8133427a-8342-11ea-bc55-0242ac130003",
+                    "type": 1,
+                    "concept": "Invoice 3",
+                    "ammount": 659
+                },
+                {
+                    "id": "81334496-8342-11ea-bc55-0242ac130003",
+                    "type": 1,
+                    "concept": "Invoice 2",
+                    "ammount": 659
+                },
+                {
+                    "id": "8133472a-8342-11ea-bc55-0242ac130003",
+                    "type": 1,
+                    "concept": "Invoice 1",
+                    "ammount": 659
+                }
             ]
-        }
-    ],
-    "movements": [
-        {
-            "id": "6c5d0462-8342-11ea-bc55-0242ac130003",
-            "type": 1,
-            "concept": "Factura 3",
-            "ammount": 1259.23
-        },
-        {
-            "id": "6c5d06e2-8342-11ea-bc55-0242ac130003",
-            "type": 0,
-            "concept": "Cuota de la Seg. Social",
-            "ammount": 279.99
-        },
-        {
-            "id": "6c5d0840-8342-11ea-bc55-0242ac130003",
-            "type": 0,
-            "concept": "Adeudo grupo xInternetPlus",
-            "ammount": 45.50
-        },
-        {
-            "id": "8133427a-8342-11ea-bc55-0242ac130003",
-            "type": 1,
-            "concept": "Invoice 3",
-            "ammount": 659
-        },
-        {
-            "id": "81334496-8342-11ea-bc55-0242ac130003",
-            "type": 1,
-            "concept": "Invoice 3",
-            "ammount": 659
-        },
-        {
-            "id": "8133472a-8342-11ea-bc55-0242ac130003",
-            "type": 1,
-            "concept": "Invoice 3",
-            "ammount": 659
         }
     ]
 }
