@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "start": "run-p watch serve:dev mock",
+    "test": "tfg ut",
     "e2e": "tfg e2e",
     "watch": "tfg build -w",
     "serve:dev": "tfg serve -p dev",

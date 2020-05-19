@@ -10,7 +10,6 @@ module.exports = {
     get TEMPLATE_UT(){ return resolve(this.ROOT, 'infra', 'testing', 'ut', 'src', 'context.tmpl.html')},
     get INDEX_UT(){return resolve(this.DIST, 'context.html')},
     get BUILD_CONFIG_FILE() { return 'build-config.js'; },
-    get E2E_CONFIG_FILE() { return 'e2e-config.js'; },
     get SRC_FOLDER() { return 'src'; },
     get MODULE_NAMESPACE() { return 'tfg'; },
     get CORE_NAMESPACE() { return `${this.MODULE_NAMESPACE}-core`; },
