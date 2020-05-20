@@ -1,5 +1,5 @@
-import { Component } from '@tfg-core/component';
-import { cardsRouter } from './cards-router';
+import {Component} from '@tfg-core/component';
+import {cardsRouter} from './cards-router';
 
 class TFGCards extends Component {
   async connectedCallback() {

@@ -5,5 +5,4 @@ commands.forEach((cmd) => {
   yargs.command(require(cmd));
 });
 
-
 yargs.help().parse();

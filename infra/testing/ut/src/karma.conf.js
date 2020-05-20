@@ -7,7 +7,7 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
     files: [
       require.resolve('systemjs/dist/system'),
-      { pattern: path.join(PROJECT.DIST, '**', '*'), included: false }
+      {pattern: path.join(PROJECT.DIST, '**', '*'), included: false},
     ],
     reporters: ['progress'],
     port: 9876,
@@ -20,7 +20,7 @@ module.exports = function (config) {
     customContextFile: PROJECT.INDEX_UT,
     urlRoot: '/__karma__/',
     proxies: {
-      '/': '/absolute' + PROJECT.DIST + '/'
-    }
-  })
-}
+      '/': '/absolute' + PROJECT.DIST + '/',
+    },
+  });
+};

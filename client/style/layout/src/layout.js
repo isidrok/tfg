@@ -1,10 +1,5 @@
 import layout from './layout.css';
 
-document.adoptedStyleSheets = [
-    ...document.adoptedStyleSheets,
-    layout
-];
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, layout];
 
-export {
-    layout
-}
+export {layout};

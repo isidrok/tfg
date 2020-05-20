@@ -1,3 +1,3 @@
 module.exports = {
-    e2eRunner: require('./e2e-runner')
+  e2eRunner: require('./e2e-runner'),
 };

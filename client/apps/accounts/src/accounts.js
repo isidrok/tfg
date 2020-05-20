@@ -1,13 +1,13 @@
 import {Component} from '@tfg-core/component';
 import {accountsRouter} from './accounts-router';
-import { store } from '@tfg-core/store';
+import {store} from '@tfg-core/store';
 import {accountsStore} from './accounts-store';
 import './components/accounts-menu';
 import accountsCSS from './accounts.css';
 
 class TFGAccounts extends Component {
   static styles = accountsCSS;
-  
+
   async connectedCallback() {
     super.connectedCallback();
     store.register(accountsStore);

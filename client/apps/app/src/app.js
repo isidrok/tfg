@@ -1,7 +1,7 @@
-import { Component } from '@tfg-core/component';
-import { store } from '@tfg-core/store';
-import { appStore } from './app-store';
-import { appRouter } from './app-router';
+import {Component} from '@tfg-core/component';
+import {store} from '@tfg-core/store';
+import {appStore} from './app-store';
+import {appRouter} from './app-router';
 import appCSS from './app.css';
 import './components/layout/layout';
 

@@ -1,4 +1,4 @@
 module.exports = {
-    dev: require('./dev'),
-    e2e: require('./e2e')
+  dev: require('./dev'),
+  e2e: require('./e2e'),
 };

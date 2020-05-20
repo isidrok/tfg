@@ -1,12 +1,12 @@
-import { Component } from '@tfg-core/component';
-import { accountsService } from '../../services/accounts-service';
-import { accountsRouter } from '../../accounts-router';
+import {Component} from '@tfg-core/component';
+import {accountsService} from '../../services/accounts-service';
+import {accountsRouter} from '../../accounts-router';
 import './movement';
 
 class TFGAccountsDetails extends Component {
   static get properties() {
     return {
-      account: { type: Object }
+      account: {type: Object},
     };
   }
   async beforeRouteEnter(context, abort) {
@@ -19,7 +19,9 @@ class TFGAccountsDetails extends Component {
   }
   _renderMovements() {
     return this.account.movements.map((movement) => {
-      return this.html`<tfg-accounts-movement .movement=${movement}></tfg-accounts-accounts-movement>`
+      return this.html`
+        <tfg-accounts-movement .movement=${movement}></tfg-accounts-accounts-movement>
+      `;
     });
   }
   render() {

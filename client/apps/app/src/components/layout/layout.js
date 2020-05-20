@@ -1,5 +1,5 @@
-import { Component } from '@tfg-core/component';
-import layoutCSS from './layout.css'
+import {Component} from '@tfg-core/component';
+import layoutCSS from './layout.css';
 import logo from './logo.svg';
 import '@material/mwc-drawer';
 import './menu/menu';
@@ -7,10 +7,10 @@ import './header/header';
 
 class TFGAppLayout extends Component {
   static styles = layoutCSS;
-  _toggleDrawer(){
+  _toggleDrawer() {
     this.refs.drawer.open = !this.refs.drawer.open;
   }
-  render() { 
+  render() {
     return this.html`
       <mwc-drawer ref="drawer" hasHeader type="modal">
         <div slot="title" class="layout__title">
@@ -22,7 +22,7 @@ class TFGAppLayout extends Component {
           <slot></slot>
         </div>
       </mwc-drawer>
-    `; 
+    `;
   }
 }
 

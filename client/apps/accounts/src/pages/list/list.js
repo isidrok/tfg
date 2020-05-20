@@ -1,24 +1,24 @@
-import { Component } from '@tfg-core/component';
-import { ConnectStore } from '@tfg-core/store';
-import { accountsRouter } from '../../accounts-router';
-import { accountsService } from '../../services/accounts-service';
+import {Component} from '@tfg-core/component';
+import {ConnectStore} from '@tfg-core/store';
+import {accountsRouter} from '../../accounts-router';
+import {accountsService} from '../../services/accounts-service';
 import listCSS from './list.css';
 import './summary';
 
 class TFGAccountsList extends ConnectStore(Component) {
   static styles = listCSS;
   static properties = {
-    accounts: { type: Array }
-  }
+    accounts: {type: Array},
+  };
   static mapState = {
     accounts: {
       from: (state) => state.accounts.accounts,
-      on: (mutations) => mutations.accounts.setAccounts
-    }
-  }
+      on: (mutations) => mutations.accounts.setAccounts,
+    },
+  };
   async connectedCallback() {
     super.connectedCallback();
-    await this.store.actions.accounts.getAccounts({accountsService})
+    await this.store.actions.accounts.getAccounts({accountsService});
   }
   _renderAccount(account) {
     return this.html`
@@ -26,9 +26,9 @@ class TFGAccountsList extends ConnectStore(Component) {
     `;
   }
   _onClick(ev) {
-    const { target } = ev;
+    const {target} = ev;
     if (target.dataset.id) {
-      accountsRouter.navigate(`/accounts/${target.dataset.id}`)
+      accountsRouter.navigate(`/accounts/${target.dataset.id}`);
     }
   }
   render() {

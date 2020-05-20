@@ -1,3 +1,3 @@
 module.exports = {
-    utRunner: require('./ut-runner')
-}
+  utRunner: require('./ut-runner'),
+};
