@@ -6,6 +6,10 @@ module.exports = {
   overrides: [
     {
       files: ['.eslintrc.js', 'build-config.js'],
+      extends: ['plugin:node/recommended'],
+      rules: {
+        'node/no-unpublished-require': 0,
+      },
       env: {
         browser: false,
         node: true,
