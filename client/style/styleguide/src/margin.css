@@ -1,7 +1,7 @@
 :root {
-    --tfg-margin-tiny: 0.25rem;
-    --tfg-margin-small: 0.5rem;
-    --tfg-margin-medium: 1rem;
-    --tfg-margin-big: 2rem;
-    --tfg-margin-large: 4rem;
-  }
+  --tfg-margin-tiny: 0.25rem;
+  --tfg-margin-small: 0.5rem;
+  --tfg-margin-medium: 1rem;
+  --tfg-margin-big: 2rem;
+  --tfg-margin-large: 4rem;
+}

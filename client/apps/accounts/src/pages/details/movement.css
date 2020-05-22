@@ -1,18 +1,18 @@
 .movement {
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    column-gap: 1rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 1rem;
 }
 
 .movement__icon {
-    --mdc-icon-size: 3em;
+  --mdc-icon-size: 3em;
 }
 
 .movement__icon--up {
-    color: var(--tfg-color-success);
+  color: var(--tfg-color-success);
 }
 
 .movement__icon--down {
-    color: var(--tfg-color-error);
+  color: var(--tfg-color-error);
 }

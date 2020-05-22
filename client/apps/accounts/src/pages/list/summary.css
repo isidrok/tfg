@@ -1,12 +1,12 @@
 :host {
-    height: 100%;
-    width: 100%;
-    display: block;
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 
 .summary {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--tfg-padding-small);
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--tfg-padding-small);
+  cursor: pointer;
 }

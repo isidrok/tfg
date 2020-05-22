@@ -1,7 +1,7 @@
 :host {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
 .app {
-    padding: var(--tfg-padding-medium);
+  padding: var(--tfg-padding-medium);
 }
