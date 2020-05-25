@@ -1,7 +1,1 @@
-module.exports = {
-    trailingComma: 'es5',
-    tabWidth: 2,
-    singleQuote: true,
-    bracketSpacing: false,
-    arrowParens: 'always'
-  };
+module.exports = require('@tfg-config/prettier')

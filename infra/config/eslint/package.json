@@ -1,0 +1,15 @@
+{
+  "name": "@tfg-config/eslint",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "babel-eslint": "10.1.0",
+    "eslint": "7.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-codeceptjs": "1.3.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.1.3",
+    "prettier": "2.0.5"
+  }
+}

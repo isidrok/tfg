@@ -13,34 +13,30 @@
     "infra/*/*"
   ],
   "scripts": {
-    "start": "run-p watch serve:dev mock",
+    "start": "run-p build:dev serve:dev mock",
     "test": "tfg ut",
     "e2e": "tfg e2e",
-    "watch": "tfg build -w",
+    "lint": "run-s lint:*",
+    "lint:js": "eslint --fix **/*.js",
+    "lint:css": "stylelint --fix **/*.css",
+    "build": "tfg build",
+    "build:dev": "tfg build -w",
+    "build:all": "tfg build -a",
     "serve:dev": "tfg serve -p dev",
     "serve:e2e": "tfg serve -p e2e",
     "mock": "json-server -q -w db.json",
-    "build:all": "tfg build -a",
-    "build:libs": "tfg build -l",
     "prepare": "tfg build -a",
     "prepare:e2e": "run-p mock serve:e2e"
   },
   "devDependencies": {
     "@tfg-commands/cli": "0.0.0",
-    "babel-eslint": "10.1.0",
-    "eslint": "7.0.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-codeceptjs": "1.3.0",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "3.1.3",
+    "@tfg-config/eslint": "0.0.0",
+    "@tfg-config/prettier": "0.0.0",
+    "@tfg-config/stylelint": "0.0.0",
+    "husky": "4.2.5",
     "json-server": "0.16.1",
     "lerna": "3.20.2",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.0.5",
-    "stylelint": "13.5.0",
-    "stylelint-config-prettier": "8.0.1",
-    "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.0.0",
-    "stylelint-prettier": "1.1.2"
+    "lint-staged": "10.2.6",
+    "npm-run-all": "4.1.5"
   }
 }
