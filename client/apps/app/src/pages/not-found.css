@@ -1,13 +1,13 @@
 :host {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .not-found__icon {
-  color: var(--tfg-color-warning);
-
   --mdc-icon-size: 4em;
+
+  color: var(--tfg-color-warning);
 }
 
 .not-found__title {

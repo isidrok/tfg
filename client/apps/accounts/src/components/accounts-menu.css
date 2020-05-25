@@ -3,13 +3,13 @@
 }
 
 .menu__item {
-  margin-right: var(--tfg-margin-small);
+  align-items: center;
+  background-color: var(--tfg-color-on-primary);
   border: 1px solid var(--tfg-color-primary);
   border-radius: 4px;
   color: var(--tfg-color-primary);
+  display: flex;
+  margin-right: var(--tfg-margin-small);
   padding: 0 var(--tfg-padding-medium);
   text-decoration: none;
-  background-color: var(--tfg-color-on-primary);
-  display: flex;
-  align-items: center;
 }
