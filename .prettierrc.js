@@ -1,1 +1,1 @@
-module.exports = require('@tfg-config/prettier')
+module.exports = require('@tfg-config/prettier');
