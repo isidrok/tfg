@@ -1,3 +1,5 @@
+const PROJECT = require('@tfg-config/project');
+
 module.exports = {
   extends: ['plugin:node/recommended'],
   env: {
@@ -9,19 +11,19 @@ module.exports = {
     'node/no-unsupported-features/es-builtins': [
       2,
       {
-        version: '~12.16.1',
+        version: PROJECT.NODE_VERSION,
       },
     ],
     'node/no-unsupported-features/es-syntax': [
       2,
       {
-        version: '~12.16.1',
+        version: PROJECT.NODE_VERSION,
       },
     ],
     'node/no-unsupported-features/node-builtins': [
       2,
       {
-        version: '~12.16.1',
+        version: PROJECT.NODE_VERSION,
       },
     ],
   },

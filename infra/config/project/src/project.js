@@ -7,6 +7,10 @@ module.exports = {
   get LOCK_FILE() {
     return resolve(this.ROOT, 'yarn.lock');
   },
+  get NODE_VERSION() {
+    const package = require(resolve(this.ROOT, 'package.json'));
+    return package.engines.node;
+  },
   get DIST() {
     return resolve(this.ROOT, 'dist');
   },
