@@ -1,5 +1,6 @@
 const path = require('path');
 const getMonorepoPackages = require('get-monorepo-packages');
+const execa = require('execa');
 const PROJECT = require('@tfg-config/project');
 
 const repoManager = {
@@ -42,6 +43,17 @@ const repoManager = {
   get clientLocations() {
     return this.clientPackages.map((package) => package.location);
   },
+  async findChangedPackages(since = 'HEAD@{1}') {
+    const lernaLS = execa('lerna', ['ls', '--all', '--json', '--since', since]);
+    try {
+      const {stdout} = await lernaLS;
+      const changedPackages = JSON.parse(stdout).map((package) => package.name);
+      return changedPackages;
+    } catch (err) {
+      throw err.message;
+    }
+  },
+  async didLockFileChange() {},
   findProjectByLocation(location) {
     return this.packages.find((package) => {
       return package.location === location;

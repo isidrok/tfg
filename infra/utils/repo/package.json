@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@tfg-config/project": "0.0.0",
+    "execa": "4.0.2",
     "get-monorepo-packages": "1.2.0"
   }
 }
