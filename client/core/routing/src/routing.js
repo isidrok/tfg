@@ -30,7 +30,7 @@ export class Router {
   _addRoute(config) {
     const {path, redirect, hasChildren} = config;
     const route = hasChildren ? path + `/:${CHILD_ROUTE}?` : path;
-    if (typeof redirect !== 'undefined') {
+    if (typeof redirect === 'string') {
       this._router.on(route, this.redirect.bind(this, redirect));
     } else {
       this._router.on(route, this._routeCallback.bind(this, config));
