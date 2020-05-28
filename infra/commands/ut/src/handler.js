@@ -21,21 +21,29 @@ async function updateImportMap() {
   }
 }
 
-async function buildProject(project) {
-  log.info('UT', `Building ${project} tests...`);
-  const package = repoManager.findPackage(project);
-  if (!package) {
-    throw new Error(`Project ${project} does not exist`);
-  }
-  const tests = await glob(path.join(package.location, '**', '*.spec.js'));
+async function findTests(package) {
+  return glob(path.join(package.location, '**', '*.spec.js'));
+}
+
+async function buildProject(package, tests) {
+  log.info('UT', `Building ${package.name} tests...`);
   await rollupRunner.buildTests(tests, package);
-  log.info('UT', `Build for ${project} finished`);
+  log.info('UT', `Build for ${package.name} finished`);
 }
 
 module.exports = async function (options) {
   let {project} = options;
   try {
-    await buildProject(project);
+    const package = repoManager.findPackage(project);
+    if (!package) {
+      throw new Error(`Project ${project} does not exist`);
+    }
+    const tests = await findTests(package);
+    if (!tests.length) {
+      log.info('UT', `No tests were found for ${package.name}`);
+      return;
+    }
+    await buildProject(package, tests);
     await updateImportMap();
     await utRunner.run();
   } catch (err) {
