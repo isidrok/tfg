@@ -28,13 +28,15 @@
     "mock": "json-server -q -w db.json",
     "prepare:e2e": "run-p mock serve:e2e",
     "commit": "git-cz",
-    "release": "lerna version --yes"
+    "release": "lerna publish --yes"
   },
   "devDependencies": {
-    "@tfg-commands/cli": "0.0.0",
-    "@tfg-config/eslint": "0.0.0",
-    "@tfg-config/prettier": "0.0.0",
-    "@tfg-config/stylelint": "0.0.0",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@tfg-commands/cli": "0.1.0",
+    "@tfg-config/eslint": "0.1.0",
+    "@tfg-config/prettier": "0.1.0",
+    "@tfg-config/stylelint": "0.1.0",
     "commitizen": "4.1.2",
     "cz-conventional-changelog": "3.2.0",
     "husky": "4.2.5",
