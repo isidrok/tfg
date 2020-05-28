@@ -23,4 +23,4 @@ const config = {
   mocha: {},
 };
 
-module.exports = config;
+module.exports = {config};
