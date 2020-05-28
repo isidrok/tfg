@@ -20,6 +20,7 @@
     "lint:js": "eslint --fix **/*.js",
     "lint:css": "stylelint --fix **/*.css",
     "build": "tfg build",
+    "build:changed": "tfg build -s HEAD@{1}",
     "build:dev": "tfg build -w",
     "build:all": "tfg build -a",
     "serve:dev": "tfg serve -p dev",
