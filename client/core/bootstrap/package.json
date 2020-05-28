@@ -1,16 +1,16 @@
 {
   "name": "@tfg-core/bootstrap",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-apps/app": "0.0.0",
-    "@tfg-style/base": "0.0.0",
-    "@tfg-style/styleguide": "0.0.0",
+    "@tfg-apps/app": "0.0.1",
+    "@tfg-style/base": "0.0.1",
+    "@tfg-style/styleguide": "0.0.1",
     "systemjs": "6.1.9"
   },
   "devDependencies": {
-    "@tfg-builder/builder": "0.0.0",
-    "@tfg-config/project": "0.0.0"
+    "@tfg-builder/builder": "0.0.1",
+    "@tfg-config/project": "0.0.1"
   }
 }

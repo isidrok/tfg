@@ -1,18 +1,18 @@
 {
   "name": "@tfg-apps/accounts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
     "@material/mwc-button": "0.15.0",
     "@material/mwc-icon": "0.15.0",
-    "@tfg-core/component": "0.0.0",
-    "@tfg-core/http": "0.0.0",
-    "@tfg-core/routing": "0.0.0",
-    "@tfg-core/store": "0.0.0",
-    "@tfg-style/layout": "0.0.0"
+    "@tfg-core/component": "0.0.1",
+    "@tfg-core/http": "0.0.1",
+    "@tfg-core/routing": "0.0.1",
+    "@tfg-core/store": "0.0.1",
+    "@tfg-style/layout": "0.0.1"
   },
   "devDependencies": {
-    "@tfg-builder/builder": "0.0.0"
+    "@tfg-builder/builder": "0.0.1"
   }
 }

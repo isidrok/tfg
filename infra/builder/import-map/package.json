@@ -1,10 +1,10 @@
 {
   "name": "@tfg-builder/import-map",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-config/project": "0.0.0",
+    "@tfg-config/project": "0.0.1",
     "fs-extra": "8.1.0",
     "glob": "7.1.6"
   }

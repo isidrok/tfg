@@ -7,12 +7,16 @@
             "conventionalCommits": true,
             "exact": true,
             "message": "chore(release): version",
-            "ignoreChanges": ["**/e2e/**", "**/*.md", "**/.spec.js"]
+            "ignoreChanges": [
+                "**/e2e/**",
+                "**/*.md",
+                "**/.spec.js"
+            ]
         }
     },
     "packages": [
         "client/*/*",
         "infra/*/*"
     ],
-    "version": "0.0.0"
+    "version": "0.0.1"
 }

@@ -1,10 +1,10 @@
 {
   "name": "@tfg-config/eslint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-config/project": "0.0.0",
+    "@tfg-config/project": "0.0.1",
     "babel-eslint": "10.1.0",
     "eslint": "7.0.0",
     "eslint-config-prettier": "6.11.0",

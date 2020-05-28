@@ -1,13 +1,13 @@
 {
   "name": "@tfg-core/routing",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-core/component": "^0.0.0",
+    "@tfg-core/component": "0.0.1",
     "regexparam": "1.3.0"
   },
   "devDependencies": {
-    "@tfg-builder/builder": "0.0.0"
+    "@tfg-builder/builder": "0.0.1"
   }
 }
