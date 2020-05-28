@@ -12,7 +12,7 @@ class TFGAppHeader extends Component {
       this._onNavIconClick
     }>
                 <mwc-icon-button slot="navigationIcon" icon="menu"></mwc-icon-button>
-                    <h1 slot="title">TFG Bank</h1>
+                    <h1 slot="title">TFG Baank</h1>
             </mwc-top-app-bar-fixed>
         `;
   }
