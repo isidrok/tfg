@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/isidrok/tfg/compare/@tfg-apps/app@0.3.0...@tfg-apps/app@0.4.0) (2020-05-28)
+
+
+### Features
+
+* **app:** change title ([7b9af3c](https://github.com/isidrok/tfg/commit/7b9af3c4f38df58fbe7f10eac7b44057dc43862a))
+
+
+
+
+
 # [0.3.0](https://github.com/isidrok/tfg/compare/@tfg-apps/app@0.2.0...@tfg-apps/app@0.3.0) (2020-05-28)
 
 
