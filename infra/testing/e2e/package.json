@@ -6,8 +6,9 @@
   "dependencies": {
     "@tfg-config/project": "0.0.0",
     "@tfg-utils/repo": "0.0.0",
-    "@wdio/selenium-standalone-service": "5.16.10",
-    "codeceptjs": "2.6.3",
-    "execa": "4.0.1"
+    "@wdio/selenium-standalone-service": "6.1.14",
+    "codeceptjs": "2.6.5",
+    "execa": "4.0.1",
+    "webdriverio": "6.1.14"
   }
 }
