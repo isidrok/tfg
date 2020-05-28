@@ -1,6 +1,6 @@
-const {projectConfig} = require('@tfg-builder/rollup-config');
+const {rollupConfig} = require('@tfg-builder/builder');
 
-module.exports = projectConfig({
+module.exports = rollupConfig.project({
   input: {
     '@tfg-core/routing': 'index.js',
   },

@@ -4,8 +4,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-builder/import-map": "0.0.0",
-    "@tfg-builder/rollup-runner": "0.0.0",
+    "@tfg-builder/builder": "0.0.0",
     "@tfg-config/project": "0.0.0",
     "@tfg-testing/ut": "0.0.0",
     "@tfg-utils/repo": "0.0.0",

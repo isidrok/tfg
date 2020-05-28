@@ -1,5 +1,5 @@
 module.exports = {
-  projectConfig: require('./project-config'),
-  libsConfig: require('./libs-config'),
-  testsConfig: require('./tests-config'),
+  project: require('./project-config'),
+  libs: require('./libs-config'),
+  tests: require('./tests-config'),
 };

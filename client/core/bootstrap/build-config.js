@@ -1,8 +1,8 @@
 const {resolve} = require('path');
-const {projectConfig} = require('@tfg-builder/rollup-config');
+const {rollupConfig} = require('@tfg-builder/builder');
 const PROJECT = require('@tfg-config/project');
 
-module.exports = projectConfig({
+module.exports = rollupConfig.project({
   input: {
     bootstrap: 'index.js',
   },

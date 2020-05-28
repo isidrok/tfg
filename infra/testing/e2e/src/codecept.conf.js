@@ -1,3 +1,5 @@
+const path = require('path');
+
 const config = {
   helpers: {
     WebDriver: {
@@ -14,6 +16,11 @@ const config = {
       services: ['selenium-standalone'],
     },
   },
+  include: {
+    I: path.resolve(__dirname, 'steps.js'),
+  },
+  bootstrap: false,
+  mocha: {},
 };
 
 module.exports = config;

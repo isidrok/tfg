@@ -2,8 +2,7 @@ const path = require('path');
 const {promisify} = require('util');
 const glob = promisify(require('glob'));
 const log = require('npmlog');
-const rollupRunner = require('@tfg-builder/rollup-runner');
-const {insertImportMap} = require('@tfg-builder/import-map');
+const {rollupRunner, importMap} = require('@tfg-builder/builder');
 const repoManager = require('@tfg-utils/repo');
 const PROJECT = require('@tfg-config/project');
 const {utRunner} = require('@tfg-testing/ut');
@@ -11,7 +10,7 @@ const {utRunner} = require('@tfg-testing/ut');
 async function updateImportMap() {
   try {
     log.info('UT', `Generating import map...`);
-    await insertImportMap({
+    await importMap.insert({
       from: PROJECT.TEMPLATE_UT,
       to: PROJECT.INDEX_UT,
     });

@@ -27,6 +27,6 @@ async function insertImportMap({from, to}) {
 }
 
 module.exports = {
-  insertImportMap,
-  buildImportMap,
+  insert: insertImportMap,
+  build: buildImportMap,
 };

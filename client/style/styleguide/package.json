@@ -4,6 +4,6 @@
   "main": "index.js",
   "private": true,
   "devDependencies": {
-    "@tfg-builder/rollup-config": "0.0.0"
+    "@tfg-builder/builder": "0.0.0"
   }
 }

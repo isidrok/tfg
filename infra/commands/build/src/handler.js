@@ -1,8 +1,7 @@
 const path = require('path');
 const log = require('npmlog');
 const chokidar = require('chokidar');
-const rollupRunner = require('@tfg-builder/rollup-runner');
-const {insertImportMap} = require('@tfg-builder/import-map');
+const {rollupRunner, importMap} = require('@tfg-builder/builder');
 const repoManager = require('@tfg-utils/repo');
 const PROJECT = require('@tfg-config/project');
 
@@ -14,7 +13,7 @@ function exitWithError() {
 async function updateImportMap() {
   try {
     log.info('BUILD', `Generating import map...`);
-    await insertImportMap({
+    await importMap.insert({
       from: PROJECT.TEMPLATE_HTML,
       to: PROJECT.INDEX_HTML,
     });
