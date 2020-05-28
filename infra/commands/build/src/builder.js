@@ -16,6 +16,11 @@ module.exports = {
     type: 'boolean',
     default: false,
   },
+  since: {
+    alias: 's',
+    describe: 'build changed projects since ref',
+    type: 'string',
+  },
   watch: {
     alias: 'w',
     describe: 'start the watcher to build projects on changes',

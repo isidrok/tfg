@@ -109,12 +109,18 @@ async function onProjectChanges(changePath) {
 }
 
 module.exports = async function (options) {
-  let {projects, libs, all, watch} = options;
+  let {projects, libs, all, watch, since} = options;
   try {
     if (all) {
       log.info('BUILD', `Building all projects and libraries`);
       projects = repoManager.clientProjects;
       libs = true;
+    }
+    if (since) {
+      const changedPackages = await repoManager.findChangedPackages(since);
+      projects = changedPackages.filter((package) => {
+        return repoManager.isClientProject(package);
+      });
     }
     if (projects && projects.length) {
       await buildProjects(projects);
