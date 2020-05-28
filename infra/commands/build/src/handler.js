@@ -121,6 +121,12 @@ module.exports = async function (options) {
       projects = changedPackages.filter((package) => {
         return repoManager.isClientProject(package);
       });
+      if (!projects.length) {
+        log.info('BUILD', `No project changed since ${since}`);
+      } else {
+        log.info('BUILD', `Projects ${projects} changed since ${since}`);
+        libs = true;
+      }
     }
     if (projects && projects.length) {
       await buildProjects(projects);

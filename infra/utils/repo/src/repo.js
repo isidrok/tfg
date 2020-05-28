@@ -53,7 +53,6 @@ const repoManager = {
       throw err.message;
     }
   },
-  async didLockFileChange() {},
   findProjectByLocation(location) {
     return this.packages.find((package) => {
       return package.location === location;
