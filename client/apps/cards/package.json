@@ -1,13 +1,13 @@
 {
   "name": "@tfg-apps/cards",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-core/component": "0.0.1",
-    "@tfg-core/routing": "0.0.1"
+    "@tfg-core/component": "0.1.0",
+    "@tfg-core/routing": "0.1.0"
   },
   "devDependencies": {
-    "@tfg-builder/builder": "0.0.1"
+    "@tfg-builder/builder": "0.1.0"
   }
 }

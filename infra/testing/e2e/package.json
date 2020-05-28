@@ -1,11 +1,11 @@
 {
   "name": "@tfg-testing/e2e",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-config/project": "0.0.1",
-    "@tfg-utils/repo": "0.0.1",
+    "@tfg-config/project": "0.1.0",
+    "@tfg-utils/repo": "0.1.0",
     "@wdio/selenium-standalone-service": "6.1.14",
     "codeceptjs": "2.6.5",
     "execa": "4.0.1",

@@ -1,10 +1,10 @@
 {
   "name": "@tfg-utils/dev-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-config/project": "0.0.1",
+    "@tfg-config/project": "0.1.0",
     "browser-sync": "2.26.7",
     "connect-history-api-fallback": "1.6.0"
   }

@@ -1,12 +1,12 @@
 {
   "name": "@tfg-commands/build",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-builder/builder": "0.0.1",
-    "@tfg-config/project": "0.0.1",
-    "@tfg-utils/repo": "0.0.1",
+    "@tfg-builder/builder": "0.1.0",
+    "@tfg-config/project": "0.1.0",
+    "@tfg-utils/repo": "0.1.0",
     "chokidar": "3.3.1",
     "npmlog": "4.1.2"
   }

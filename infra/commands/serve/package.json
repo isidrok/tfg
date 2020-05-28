@@ -1,10 +1,10 @@
 {
   "name": "@tfg-commands/serve",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-utils/dev-server": "0.0.1",
+    "@tfg-utils/dev-server": "0.1.0",
     "npmlog": "4.1.2"
   }
 }

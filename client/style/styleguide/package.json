@@ -1,9 +1,9 @@
 {
   "name": "@tfg-style/styleguide",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "devDependencies": {
-    "@tfg-builder/builder": "0.0.1"
+    "@tfg-builder/builder": "0.1.0"
   }
 }

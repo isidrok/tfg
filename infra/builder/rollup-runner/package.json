@@ -1,11 +1,11 @@
 {
   "name": "@tfg-builder/rollup-runner",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-builder/rollup-config": "0.0.1",
-    "@tfg-config/project": "0.0.1",
+    "@tfg-builder/rollup-config": "0.1.0",
+    "@tfg-config/project": "0.1.0",
     "rollup": "1.29.0"
   }
 }
