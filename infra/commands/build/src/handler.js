@@ -124,7 +124,7 @@ module.exports = async function (options) {
       if (!projects.length) {
         log.info('BUILD', `No project changed since ${since}`);
       } else {
-        log.info('BUILD', `Projects ${projects} changed since ${since}`);
+        log.info('BUILD', `Detected project changes since ${since}`);
         libs = true;
       }
     }
