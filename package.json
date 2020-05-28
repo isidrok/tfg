@@ -27,7 +27,8 @@
     "serve:e2e": "tfg serve -p e2e",
     "mock": "json-server -q -w db.json",
     "prepare:e2e": "run-p mock serve:e2e",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "version": "lerna version --conventional-commits --yes"
   },
   "devDependencies": {
     "@tfg-commands/cli": "0.0.0",
