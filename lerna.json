@@ -16,7 +16,8 @@
     },
     "packages": [
         "client/*/*",
-        "infra/*/*"
+        "infra/*/*",
+        "."
     ],
     "version": "independent"
 }

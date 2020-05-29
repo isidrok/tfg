@@ -10,7 +10,8 @@
   },
   "workspaces": [
     "client/*/*",
-    "infra/*/*"
+    "infra/*/*",
+    "."
   ],
   "scripts": {
     "start": "run-p build:dev serve:dev mock",
