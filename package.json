@@ -1,6 +1,6 @@
 {
   "name": "@tfg/root",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@tfg-commands/cli": "0.1.0",
+    "@tfg-commands/cli": "0.1.1",
     "@tfg-config/eslint": "0.1.0",
     "@tfg-config/prettier": "0.1.0",
     "@tfg-config/stylelint": "0.1.0",
