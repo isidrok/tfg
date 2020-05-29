@@ -1,8 +1,12 @@
 module.exports = {
-  project: {
+  projects: {
     alias: 'p',
-    describe: 'project to test',
+    describe: 'projects to test',
+    type: 'array',
+  },
+  since: {
+    alias: 's',
+    describe: 'build changed projects since ref',
     type: 'string',
-    required: true,
   },
 };

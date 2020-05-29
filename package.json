@@ -15,6 +15,7 @@
   "scripts": {
     "start": "run-p build:dev serve:dev mock",
     "test": "tfg ut",
+    "test:changed": "tfg ut -s HEAD@{1}",
     "e2e": "tfg e2e",
     "lint": "run-s lint:*",
     "lint:js": "eslint --fix **/*.js",
@@ -22,7 +23,7 @@
     "build": "tfg build",
     "build:changed": "tfg build -s HEAD@{1}",
     "build:dev": "tfg build -w",
-    "build:all": "tfg build -a",
+    "serve": "tfg serve",
     "serve:dev": "tfg serve -p dev",
     "serve:e2e": "tfg serve -p e2e",
     "mock": "json-server -q -w db.json",
