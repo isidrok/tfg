@@ -18,7 +18,7 @@
     "test": "tfg ut",
     "test:changed": "tfg ut -s HEAD@{1}",
     "e2e": "tfg e2e",
-    "lint": "run-s lint:*",
+    "lint": "run-p lint:*",
     "lint:js": "eslint --fix **/*.js",
     "lint:css": "stylelint --fix **/*.css",
     "build": "tfg build",
