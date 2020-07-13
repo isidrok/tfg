@@ -1,5 +1,5 @@
 {
-  "name": "@tfg-utils/dev-server",
+  "name": "@tfg-server/dev-server",
   "version": "0.1.0",
   "main": "index.js",
   "private": true,

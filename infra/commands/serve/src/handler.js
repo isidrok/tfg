@@ -1,5 +1,5 @@
 const log = require('npmlog');
-const devServer = require('@tfg-utils/dev-server');
+const devServer = require('@tfg-server/dev-server');
 
 module.exports = async function (options) {
   let {profile} = options;
