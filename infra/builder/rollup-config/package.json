@@ -11,7 +11,7 @@
     "@rollup/plugin-replace": "2.3.0",
     "@rollup/plugin-url": "4.0.1",
     "@tfg-builder/rollup-plugin-css-modules": "0.1.0",
-    "@tfg-builder/rollup-plugin-ensure-deps": "0.1.0",
+    "@tfg-builder/rollup-plugin-deps": "0.1.0",
     "@tfg-builder/rollup-plugin-entry": "0.1.0",
     "@tfg-builder/rollup-plugin-import-map": "0.1.0",
     "@tfg-config/project": "0.1.0",

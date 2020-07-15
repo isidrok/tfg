@@ -3,7 +3,7 @@ const PROJECT = require('@tfg-config/project');
 
 const plugins = {
   del: require('rollup-plugin-delete'),
-  deps: require('@tfg-builder/rollup-plugin-ensure-deps'),
+  deps: require('@tfg-builder/rollup-plugin-deps'),
   resolve: require('@rollup/plugin-node-resolve'),
   replace: require('@rollup/plugin-replace'),
   url: require('@rollup/plugin-url'),

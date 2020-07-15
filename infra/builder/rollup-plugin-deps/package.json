@@ -1,5 +1,5 @@
 {
-  "name": "@tfg-builder/rollup-plugin-ensure-deps",
+  "name": "@tfg-builder/rollup-plugin-deps",
   "version": "0.1.0",
   "main": "index.js",
   "private": true

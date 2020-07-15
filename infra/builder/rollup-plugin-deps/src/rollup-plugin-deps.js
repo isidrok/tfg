@@ -1,7 +1,7 @@
-module.exports = function ensureDeps(config) {
+module.exports = function deps(config) {
   const {dependencies, externals} = config;
   return {
-    name: 'ensure-deps',
+    name: 'deps',
     async resolveId(source, importer) {
       if (!importer || source.startsWith('.') || source.startsWith('\0')) {
         return null;
