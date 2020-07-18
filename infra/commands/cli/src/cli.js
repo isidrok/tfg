@@ -5,4 +5,4 @@ commands.forEach((cmd) => {
   yargs.command(require(cmd));
 });
 
-yargs.help().parse();
+yargs.scriptName('tfg').help().parse();
