@@ -3,7 +3,7 @@ import superAgent from 'superagent/dist/superagent';
 export class HTTPService {
   get config() {
     return {
-      baseURL: 'http://localhost:3000',
+      baseURL: '',
       headers: {},
       query: {},
       timeout: 0,

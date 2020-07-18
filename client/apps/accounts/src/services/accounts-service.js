@@ -3,7 +3,7 @@ import {HTTPService} from '@tfg-core/http';
 class AccountsService extends HTTPService {
   get config() {
     return this.extendedConfig(super.config, {
-      baseURL: '/accounts',
+      baseURL: 'http://localhost:3000/accounts',
     });
   }
 }
