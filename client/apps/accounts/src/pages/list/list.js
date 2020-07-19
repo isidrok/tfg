@@ -12,13 +12,17 @@ class TFGAccountsList extends ConnectStore(Component) {
   };
   static mapState = {
     accounts: {
-      from: (state) => state.accounts.accounts,
-      on: (mutations) => mutations.accounts.setAccounts,
+      accounts: 'accounts',
+    },
+  };
+  static mapActions = {
+    accounts: {
+      getAccounts: 'getAccounts',
     },
   };
   async connectedCallback() {
     super.connectedCallback();
-    await this.store.actions.accounts.getAccounts({accountsService});
+    await this.getAccounts({accountsService});
   }
   _renderAccount(account) {
     return this.html`

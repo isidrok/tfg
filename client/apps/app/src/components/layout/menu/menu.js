@@ -12,14 +12,18 @@ class TFGAppMenu extends ConnectStore(Component) {
   };
   static styles = menuCSS;
   static mapState = {
-    items: {
-      from: (state) => state.app.menuItems,
-      on: (mutations) => mutations.app.setMenuItems,
+    app: {
+      menuItems: 'items',
+    },
+  };
+  static mapActions = {
+    app: {
+      getMenuItems: 'getMenuItems',
     },
   };
   async connectedCallback() {
     super.connectedCallback();
-    await this.store.actions.app.getMenuItems({menuItemsService});
+    await this.getMenuItems({menuItemsService});
   }
   _menuItem(item) {
     const {href, icon, label, name} = item;

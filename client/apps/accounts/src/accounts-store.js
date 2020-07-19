@@ -4,15 +4,10 @@ export const accountsStore = {
     accounts: [],
     movements: [],
   },
-  mutations: {
-    setAccounts(state, {accounts}) {
-      state.accounts = accounts;
-    },
-  },
   actions: {
-    async getAccounts({mutations}, {accountsService}) {
+    async getAccounts({state}, {accountsService}) {
       const accounts = await accountsService.getAll();
-      mutations.setAccounts.exec({accounts});
+      state.accounts = accounts;
     },
   },
 };
