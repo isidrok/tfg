@@ -66,14 +66,14 @@ class Store {
     this.actions[ns] = this._decorateActions(actions, ns);
     this.projections[ns] = this._decorateProjections(projections, ns);
   }
-  subscribe(statePath, cb, ctx) {
-    this._subscriptions[statePath] =
-      this._subscriptions[statePath] || new Subject();
-    return this._subscriptions[statePath].sub(cb, ctx);
+  subscribe(ns, value, cb, ctx) {
+    this._subscriptions[`${ns}.${value}`] =
+      this._subscriptions[`${ns}.${value}`] || new Subject();
+    return this._subscriptions[`${ns}.${value}`].sub(cb, ctx);
   }
-  unsubscribe(statePath, cb, ctx) {
-    if (this._subscriptions[statePath]) {
-      this._subscriptions[statePath].unsub(cb, ctx);
+  unsubscribe(ns, value, cb, ctx) {
+    if (this._subscriptions[`${ns}.${value}`]) {
+      this._subscriptions[`${ns}.${value}`].unsub(cb, ctx);
     }
   }
   unregister({namespace: ns}) {
@@ -81,9 +81,9 @@ class Store {
     this.actions[ns] = null;
     this.projections[ns] = null;
   }
-  _notify(statePath, value) {
-    if (this._subscriptions[statePath]) {
-      this._subscriptions[statePath].notify(value);
+  _notify(ns, state, value) {
+    if (this._subscriptions[`${ns}.${state}`]) {
+      this._subscriptions[`${ns}.${state}`].notify(value);
     }
   }
   _decorateState(state, ns) {
@@ -98,7 +98,7 @@ class Store {
         },
         set(value) {
           this[privateKey] = value;
-          notify(`${ns}.${key}`, value);
+          notify(ns, key, value);
         },
       });
     }
@@ -161,10 +161,7 @@ export function ConnectStore(Super) {
     __subscribeProps() {
       for (let [ns, state] of Object.entries(this.constructor.mapState || {})) {
         for (let [from, to] of Object.entries(state)) {
-          const sub = store.subscribe(
-            `${ns}.${from}`,
-            (value) => (this[to] = value)
-          );
+          const sub = store.subscribe(ns, from, (value) => (this[to] = value));
           this.__unsubs.push(sub);
         }
       }
