@@ -1,16 +1,16 @@
 {
   "name": "@tfg-commands/cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "private": true,
   "bin": {
     "tfg": "index.js"
   },
   "dependencies": {
-    "@tfg-commands/build": "0.1.0",
+    "@tfg-commands/build": "0.1.1",
     "@tfg-commands/e2e": "0.1.0",
-    "@tfg-commands/serve": "0.1.0",
-    "@tfg-commands/ut": "0.1.1",
+    "@tfg-commands/serve": "0.1.1",
+    "@tfg-commands/ut": "0.1.2",
     "yargs": "15.1.0"
   }
 }

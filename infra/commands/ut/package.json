@@ -1,10 +1,10 @@
 {
   "name": "@tfg-commands/ut",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@tfg-builder/builder": "0.1.0",
+    "@tfg-builder/builder": "0.1.1",
     "@tfg-config/project": "0.1.0",
     "@tfg-testing/ut": "0.1.0",
     "@tfg-utils/repo": "0.1.0",

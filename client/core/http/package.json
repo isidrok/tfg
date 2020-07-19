@@ -1,12 +1,12 @@
 {
   "name": "@tfg-core/http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
     "superagent": "5.2.2"
   },
   "devDependencies": {
-    "@tfg-builder/builder": "0.1.0"
+    "@tfg-builder/builder": "0.1.1"
   }
 }

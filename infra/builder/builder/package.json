@@ -1,11 +1,11 @@
 {
   "name": "@tfg-builder/builder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "private": true,
   "dependencies": {
     "@tfg-builder/import-map": "0.1.0",
-    "@tfg-builder/rollup-config": "0.1.0",
-    "@tfg-builder/rollup-runner": "0.1.0"
+    "@tfg-builder/rollup-config": "0.1.1",
+    "@tfg-builder/rollup-runner": "0.1.1"
   }
 }
