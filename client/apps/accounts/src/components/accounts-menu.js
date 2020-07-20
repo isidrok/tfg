@@ -12,10 +12,6 @@ class TFGAccountsMenu extends Component {
                     <mwc-icon class="menu__item__icon">list</mwc-icon>
                     <span class="menu__item__text">Show all</span>
                 </a>
-                <a class="menu__item" href="/accounts/create">
-                    <mwc-icon class="menu__item__icon">add</mwc-icon>
-                    <span class="menu__item__text">New Account</span>
-                </a>
             </div>
         `;
   }

@@ -37,6 +37,20 @@
                     "concept": "Adeudo grupo xInternetPlus",
                     "ammount": 45.50
                 }
+            ],
+            "cards": [
+              {
+                "id": "b4f362d2-9cc2-4116-9045-68e03cb82b39",
+                "number": "4024007124992966",
+                "account": "eea9afb6-8341-11ea-bc55-0242ac130003",
+                "type": "Debit"
+              },
+              {
+                "id": "cb652e24-60d8-4bf7-b166-e19c6e02d695",
+                "number": "4929498730529399",
+                "account": "eea9afb6-8341-11ea-bc55-0242ac130003",
+                "type": "Virtual"
+              }
             ]
         },
         {
@@ -62,7 +76,22 @@
                     "concept": "Invoice 1",
                     "ammount": 659
                 }
-            ]
+            ],
+            "cards": []
         }
+    ],
+    "cards": [
+      {
+        "id": "b4f362d2-9cc2-4116-9045-68e03cb82b39",
+        "number": "4024007124992966",
+        "account": "eea9afb6-8341-11ea-bc55-0242ac130003",
+        "type": "Debit"
+      },
+      {
+        "id": "cb652e24-60d8-4bf7-b166-e19c6e02d695",
+        "number": "4929498730529399",
+        "account": "eea9afb6-8341-11ea-bc55-0242ac130003",
+        "type": "Virtual"
+      }
     ]
 }

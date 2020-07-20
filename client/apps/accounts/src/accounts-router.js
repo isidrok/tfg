@@ -10,12 +10,6 @@ export const accountsRouter = new Router({
       load: () => import('./pages/list/list'),
     },
     {
-      path: '/create',
-      name: 'create',
-      tag: 'tfg-accounts-create',
-      load: () => import('./pages/create/create'),
-    },
-    {
       path: '/not-found',
       name: 'not-found',
       tag: 'tfg-accounts-not-found',

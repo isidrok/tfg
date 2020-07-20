@@ -2,7 +2,7 @@ import {Component} from '@tfg-core/component';
 import {accountsService} from '../../services/accounts-service';
 import {accountsRouter} from '../../accounts-router';
 import './movement';
-
+import '@tfg-apps/cards/summary';
 class TFGAccountsDetails extends Component {
   static get properties() {
     return {
@@ -24,6 +24,13 @@ class TFGAccountsDetails extends Component {
       `;
     });
   }
+  _renderCards() {
+    return this.account.cards.map((card) => {
+      return this.html`
+        <tfg-cards-summary .card=${card}></tfg-cards-summary>
+      `;
+    });
+  }
   render() {
     return this.html`
       <div>
@@ -32,6 +39,10 @@ class TFGAccountsDetails extends Component {
         <h4>Last movements</h4>
         <div>
           ${this._renderMovements()}
+        </div>
+        <h4>Cards</h4>
+        <div>
+          ${this._renderCards()}
         </div>
       </div>
     `;
