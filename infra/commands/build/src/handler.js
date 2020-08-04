@@ -116,6 +116,9 @@ module.exports = async function (options) {
       projects = repoManager.clientProjects;
       libs = true;
     }
+    if (watch) {
+      since = 'HEAD';
+    }
     if (since) {
       const changedPackages = await repoManager.findChangedPackages(since);
       projects = changedPackages.filter((package) => {

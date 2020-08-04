@@ -5,6 +5,4 @@ Scenario('Enter home page', (I) => {
   I.see('TFG Bank', {
     shadow: ['tfg-app', 'tfg-app-layout', 'tgf-app-header', 'h1'],
   });
-})
-  .tag('@smoke')
-  .tag('@app');
+});
