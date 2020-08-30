@@ -23,7 +23,6 @@ const defaults = {
   ext: 'js',
   entryFileNames: '[name]',
   chunkFileNames: '[name]',
-  hash: true,
 };
 
 module.exports = function (options) {
@@ -48,15 +47,13 @@ module.exports = function (options) {
     },
     generateBundle(outputOptions, bundle) {
       const imports = {};
-      const {hash, mapFileName, baseURL, ext} = conf;
+      const {mapFileName, baseURL, ext} = conf;
       Object.values(bundle).forEach((chunk) => {
         const {fileName, code, facadeModuleId, isEntry} = chunk;
-        if (hash) {
-          const hashedFileName = `${removeExt(fileName)}.${createHash(
-            code
-          )}.${ext}`;
-          chunk.fileName = hashedFileName;
-        }
+        const hashedFileName = `${removeExt(fileName)}.${createHash(
+          code
+        )}.${ext}`;
+        chunk.fileName = hashedFileName;
         const dest = `${baseURL}${chunk.fileName}`;
         imports[`${baseURL}${fileName}`] = dest;
         if (isEntry) {

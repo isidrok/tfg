@@ -6,7 +6,9 @@ module.exports = function deps(config) {
       if (!importer || source.startsWith('.') || source.startsWith('\0')) {
         return null;
       }
-      const isExternal = externals.includes(source);
+      const isExternal =
+        externals.includes(source) ||
+        externals.some((ext) => source.startsWith(`${ext}/`));
       const isDep = dependencies.includes(source);
       const isNestedDep = dependencies.some((dep) => {
         return source.startsWith(`${dep}/`);
