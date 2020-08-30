@@ -1,4 +1,13 @@
 .list {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 30%;
+}
+
+.list__item {
+  border: 1px solid var(--tfg-color-primary);
+  border-radius: 9px;
+  margin-bottom: var(--tfg-margin-medium);
+  padding: var(--tfg-padding-small);
 }

@@ -1,4 +1,5 @@
 import {Component} from '@tfg-core/component';
+import {mask} from '@tfg-core/format/mask';
 import summaryCSS from './summary.css';
 class TFGCardsSummary extends Component {
   static properties = {
@@ -9,7 +10,7 @@ class TFGCardsSummary extends Component {
   render() {
     return this.html`
             <div class="summary">
-                <p>${this.card.number}</p>
+                <p>${mask(this.card.number, 12)}</p>
                 <p>${this.card.type}</p>
             </div>
         `;

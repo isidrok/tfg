@@ -28,7 +28,8 @@ class TFGCardsList extends ConnectStore(Component) {
       <div class="list">
         ${this.cards.map(
           (card) =>
-            this.html`<tfg-cards-summary .card=${card}></tfg-cards-summary>`
+            this
+              .html`<tfg-cards-summary class="list__item" .card=${card}></tfg-cards-summary>`
         )}
       </div>
     `;
