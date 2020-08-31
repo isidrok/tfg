@@ -40,7 +40,7 @@ class TFGAccountsDetails extends Component {
         <div>
           ${this._renderMovements()}
         </div>
-        <h4>Cards</h4>
+        ${this.account.cards.length ? this.html`<h4>Cards</h4>` : null}
         <div>
           ${this._renderCards()}
         </div>
