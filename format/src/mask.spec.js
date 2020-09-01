@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-undef */
 import {mask} from './mask';
 describe('mask', () => {
   it('masks the value', () => {
